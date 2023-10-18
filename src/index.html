@@ -1,15 +1,482 @@
 <!DOCTYPE html>
-@@include('components/page-blocks/_head.html',{
-"lang":"en",
-"title":"Easy-webdev-startpack v3.0",
-"description":"Gulp pack for easy html/php markup development",
-"keywords":"",
-"favicon":"img/favicons/favicon",
-})
+@@include('components/page-blocks/_head.html')
 
 <body>
 	@@include('components/page-blocks/_header.html')
-	<main class="main"></main>
+	<main class="l-main">
+
+		<section class="l-banner">
+			<div 
+				class="l-banner__image" 
+				style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url('/img/banner.webp')"
+				>
+				<div class="l-wrapper">
+					<div class="l-banner__content">
+						<h1 class="fs-66-700 text-white">Надежные перевозки по всей стране!</h1>
+						<h3 class="fs-21-300 text-white">Мы предлагаем надежность, профессионализм и поддержку на каждом этапе вашего пути.</h3>
+					</div>
+				</div>
+			</div>
+			<div class="l-calc">
+				<div class="l-wrapper">
+					<div class="l-calc__content">
+						<div class="l-calc__form">
+							<div class="l-calc__item">
+								<label for="destination">Пункт отправки</label>
+								<input id="destination" type="text" placeholder="Указать город">
+							</div>
+	
+							<div class="l-calc__separator"></div>
+	
+							<div class="l-calc__item">
+								<label for="city">Пункт прибытия</label>
+								<input id="city" type="text" placeholder="Указать город">
+							</div>
+	
+							<div class="l-calc__separator"></div>
+	
+							<div class="l-calc__item">
+								<label for="type">Вид отправки</label>
+								<div class="custom-select">
+									<select id="type">
+										<option value="0">Выбрать</option>
+										<option value="1">Audi</option>
+										<option value="2">BMW</option>
+									</select>
+								</div>
+							</div>
+	
+							<div class="l-calc__separator"></div>
+	
+							<div class="l-calc__item">
+								<label for="weight">Вес</label>
+								<input id="weight" type="text" placeholder="Указать">
+							</div>
+							<div class="l-calc__action">
+								<a class="btn btn-yellow" href="#">Рассчитать</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-services">
+			<div class="l-wrapper">
+				<div class="l-section">
+					<div class="l-section__category">
+						<span>
+							Услуги и тарифы
+						</span>
+						<div class="l-section__image"></div>
+					</div>
+					<div class="l-section__title">
+						<h3>Предоставляем услуги доставки <br> по вашему выбору</h3>
+					</div>
+				</div>
+				<div class="l-services__content">
+					<div class="l-services__grid">
+						<div class="l-services__card">
+							<a href="#">
+								<div class="l-services__card-img">
+									<img src="/img/services-1.webp" alt="">
+								</div>
+								<div class="l-services__card-footer">
+									<div class="l-card__title">
+										<span>
+											Сборные автомобильные грузоперевозки
+										</span>
+									</div>
+									<div class="l-card__subtitle">
+										<span>
+											Быстрые и надежные перевозки сборного груза
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l-services__card">
+							<a href="#">
+								<div class="l-services__card-img">
+									<img src="/img/services-2.webp" alt="">
+								</div>
+								<div class="l-services__card-footer">
+									<div class="l-card__title">
+										<span>
+											Прямые автомобильные грузоперевозки
+										</span>
+									</div>
+									<div class="l-card__subtitle">
+										<span>
+											Экономичные и безопасные фрахты целых фур
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l-services__card">
+							<a href="#">
+								<div class="l-services__card-img">
+									<img src="/img/services-3.webp" alt="">
+								</div>
+								<div class="l-services__card-footer">
+									<div class="l-card__title">
+										<span>
+											Железнодорожные грузоперевозки
+										</span>
+									</div>
+									<div class="l-card__subtitle">
+										<span>
+											Экономичные и продуманные контейнерные и вагонные ж/д отправки
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-clients">
+			<div class="l-wrapper">
+				<div class="l-section">
+					<div class="l-section__category">
+						<span>
+							Наши клиенты
+						</span>
+						<div class="l-section__image"></div>
+					</div>
+					<div class="l-section__title">
+						<h3>
+							Нам доверяют
+						</h3>
+					</div>
+				</div>
+				<div class="l-clients__content">
+					<div class="swiper swiper-clients">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-1.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-2.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-5.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-5.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-5.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-5.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-5.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-3.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-4.webp" alt="">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-clients__card">
+									<img src="/img/clients-5.webp" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-news">
+			<div class="l-wrapper">
+				<div class="l-section">
+					<div class="l-section__category">
+						<span>
+							Новости
+						</span>
+						<div class="l-section__image"></div>
+					</div>
+					<div class="l-section__title">
+						<h3>
+							Будьте в Курсе Событий
+						</h3>
+					</div>
+				</div>
+				<div class="l-news__content">
+					<div class="l-news__grid">
+						<div class="l-news__card">
+							<a href="#">
+								<div class="l-news__card-img">
+									<img src="/img/news-1.webp" alt="">
+								</div>
+								<div class="l-news__card-footer">
+									<div class="l-card__date">
+										<span>
+											23.09.2023
+										</span>
+									</div>
+									<div class="l-card__title">
+										<span>
+											“Открытие Нового Маршрута: Мы Расширяем Возможности Доставки!”
+										</span>
+									</div>
+									<div class="l-card__subtitle">
+										<span>
+											Мы рады объявить о запуске нового маршрута, который позволит нам расширить географию наших грузоперевозок. Теперь ваш груз может быть доставлен ещё быстрее и эффективнее!
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l-news__card">
+							<a href="#">
+								<div class="l-news__card-img">
+									<img src="/img/news-2.webp" alt="">
+								</div>
+								<div class="l-news__card-footer">
+									<div class="l-card__date">
+										<span>
+											23.09.2023
+										</span>
+									</div>
+									<div class="l-card__title">
+										<span>
+											"Экологическая Инициатива: Мы переходим на Эко-Дружественный Транспорт"
+										</span>
+									</div>
+									<div class="l-card__subtitle">
+										<span>
+											Мы гордимся анонсировать наше участие в экологической инициативе. Начиная сегодня, мы переходим на использование экологически чистого транспорта, что способствует уменьшению нашего углеродного следа и поддерживает заботу о окружающей среде.
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="l-news__card">
+							<a href="#">
+								<div class="l-news__card-img">
+									<img src="/img/news-3.webp" alt="">
+								</div>
+								<div class="l-news__card-footer">
+									<div class="l-card__date">
+										<span>
+											23.09.2023
+										</span>
+									</div>
+									<div class="l-card__title">
+										<span>
+											"Экологическая Инициатива: Мы переходим на Эко-Дружественный Транспорт"
+										</span>
+									</div>
+									<div class="l-card__subtitle">
+										<span>
+											Мы гордимся анонсировать наше участие в экологической инициативе. Начиная сегодня, мы переходим на использование экологически чистого транспорта, что способствует уменьшению нашего углеродного следа и поддерживает заботу о окружающей среде.
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-advantages">
+			<div class="l-wrapper">
+				<div class="l-section">
+					<div class="l-section__category">
+						<span>
+							Наши преимущества
+						</span>
+						<div class="l-section__image"></div>
+					</div>
+					<div class="l-section__title">
+						<h3>
+							Лучший выбор в пользу вас
+						</h3>
+					</div>
+				</div>
+				<div class="l-advantages__content">
+					<div class="l-advantages__grid">
+						<div class="l-advantages__item">
+							<div class="l-advantages__item-icon">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--adv-1" />
+								</svg>
+							</div>
+							<div class="l-advantages__item-text">
+								<span>
+									Переработка, накопление и хранение груза на собственных складах включены в тариф
+								</span>
+							</div>
+						</div>
+						<div class="l-advantages__item">
+							<div class="l-advantages__item-icon">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--adv-2" />
+								</svg>
+							</div>
+							<div class="l-advantages__item-text">
+								<span>
+									Мы зарегистрированы и ведём деятельность в г. Якутске
+								</span>
+							</div>
+						</div>
+						<div class="l-advantages__item">
+							<div class="l-advantages__item-icon">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--adv-3" />
+								</svg>
+							</div>
+							<div class="l-advantages__item-text">
+								<span>
+									Доставим ваш груз до указанного адреса со знанием специфики региональной логистики
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-reviews">
+			<div class="l-wrapper">
+				<div class="l-section">
+					<div class="l-section__category">
+						<span>
+							Отзывы
+						</span>
+						<div class="l-section__image"></div>
+					</div>
+					<div class="l-section__title">
+						<h3>
+							Ваши слова – наша лучшая реклама
+						</h3>
+					</div>
+				</div>
+				<div class="l-reviews__content">
+					<div class="swiper swiper-reviews">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="l-reviews__card">
+									<div class="l-reviews__card-review">
+										<span>
+											Внимательное отношение к клиенту, стараются подобрать подходящий вариант доставки, консультируют. Пока лучше перевозчика, чем "Айан", не встретил
+										</span>
+									</div>
+									<div class="l-reviews__card-reviewer">
+										<span>
+											Матвей Кондратьев
+										</span>
+									</div>
+									<div class="l-reviews__card-rating">
+										<svg class="filled">
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg class="filled">
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg>
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg>
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg>
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="l-reviews__card">
+									<div class="l-reviews__card-review">
+										<span>
+											Внимательное отношение к клиенту, стараются подобрать подходящий вариант доставки, консультируют. Пока лучше перевозчика, чем "Айан", не встретил
+										</span>
+									</div>
+									<div class="l-reviews__card-reviewer">
+										<span>
+											Матвей Кондратьев
+										</span>
+									</div>
+									<div class="l-reviews__card-rating">
+										<svg class="filled">
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg class="filled">
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg class="filled">
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg>
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+										<svg>
+											<use xlink:href="img/sprite.svg#sprite--rating_star" />
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="l-reviews__card-prev">
+							<svg>
+								<use xlink:href="img/sprite.svg#sprite--arrow_swiper" />
+							</svg>
+						</div>
+						<div class="l-reviews__card-next">
+							<svg>
+								<use xlink:href="img/sprite.svg#sprite--arrow_swiper" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-contacts">
+			<div class="l-wrapper">
+				<div class="l-section__category">
+					<span>
+						Контакты
+					</span>
+					<div class="l-section__image"></div>
+				</div>
+				<div class="l-section__title">
+					<h3>
+						Свяжитесь с нами
+					</h3>
+				</div>
+			</div>
+		</section>
+
+	</main>
 	@@include('components/page-blocks/_footer.html')
 	@@include('components/page-blocks/_scripts.html')
 </body>

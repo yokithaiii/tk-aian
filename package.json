@@ -44,6 +44,7 @@
     "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
-    "sass": "^1.56.0"
+    "sass": "^1.56.0",
+    "swiper": "^10.3.1"
   }
 }

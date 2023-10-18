@@ -1,0 +1,39 @@
+.l-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  padding: 24px 0;
+}
+
+.l-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.l-header__logo {
+  max-width: 170px;
+  svg {
+    width: 100%;
+    height: 45px;
+  }
+}
+
+.l-header__nav {
+  ul {
+    display: flex;
+    gap: 24px;
+  }
+  a {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFFFFF;
+  }
+}
+
+.l-header__action {
+
+}
