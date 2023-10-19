@@ -1,22 +1,72 @@
+ymaps.ready(init);
+
 const swiperClients = new Swiper('.swiper-clients', {
   spaceBetween: 20,
   centeredSlides: false,
   slidesPerView: "auto",
   loop: true,
+  loopedSlides: 20,
   speed: 6000,
   autoplay: {
-    delay: 10,
+    delay: 1,
+    disableOnInteraction: false,
   },
+  allowTouchMove: true,
+  disableOnInteraction: true,
 });
 
 const swiperReviews = new Swiper('.swiper-reviews', {
   slidesPerView: 1,
   spaceBetween: 20,
+  speed: 1000,
   navigation: {
     nextEl: '.l-reviews__card-next',
     prevEl: '.l-reviews__card-prev',
   },
 });
+
+function init() {
+  var myMap = new ymaps.Map("map", {
+    center: [62.024255, 129.726218],
+    zoom: 16,
+    controls: ['zoomControl'],
+    behaviors: ["default", "scrollZoom"]
+  });
+  var myPlacemark1 = new ymaps.Placemark(
+    [62.024255, 129.726218], 
+    {balloonContent: 'Транспортная компания "Айан"'},
+    {iconColor: '#3AC4A7'}
+  );
+  var myPlacemark2 = new ymaps.Placemark(
+    [55.048013, 82.905086], 
+    {balloonContent: 'Офис в Новосибирске'},
+    {iconColor: '#3AC4A7'}
+  );
+  var myPlacemark3 = new ymaps.Placemark(
+    [55.461757, 37.583041], 
+    {balloonContent: 'Офис в Москве'},
+    {iconColor: '#3AC4A7'}
+  );
+  myMap.behaviors.disable("scrollZoom");
+  myMap.geoObjects.add(myPlacemark1);
+  myMap.geoObjects.add(myPlacemark2);
+  myMap.geoObjects.add(myPlacemark3);
+
+  let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
+  locationBtns.forEach(element => {
+    element.addEventListener("click", (event) => {
+      let coordinate = element.getAttribute('data-coordinate').split(',',2);
+      myMap.setZoom(17);
+      myMap.panTo([+coordinate[0], +coordinate[1]], {
+        delay: 3000,
+        duration: 1000,
+        flying: true,
+      });
+    });
+  });
+}
+
+
 
 
 var x, i, j, l, ll, selElmnt, a, b, c;

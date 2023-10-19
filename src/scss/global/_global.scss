@@ -78,7 +78,7 @@ a {
 	padding: 0 70px;
 }
 
-section:not(.l-banner) {
+section:not(.l-banner, .l-wa) {
 	margin-top: 100px;
 }
 
@@ -136,6 +136,24 @@ section:not(.l-banner) {
 		background: #FFAE27;
 		color: #FFFFFF;
 	}
+	&.btn-green {
+		border: 1px solid #3AC4A7;
+		color: #3AC4A7;
+		&.active {
+			border: none;
+			background: #3AC4A7;
+			color: #FFFFFF;
+		}
+	}
+	&.btn-wa {
+		border: none;
+		background: #FFF;
+		color: #0B7075;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+	}
 }
 
 .text-white {
@@ -144,7 +162,9 @@ section:not(.l-banner) {
 
 ::selection {
 	background: #3AC4A7;
-	}
+	color: #FFF;
+}
 ::-moz-selection {
 	background: #3AC4A7;
+	color: #FFF;
 }

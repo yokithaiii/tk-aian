@@ -253,7 +253,7 @@
 
 .l-clients {
   .swiper {
-    overflow-x: visible;
+    overflow: visible;
   }
 
   .swiper-wrapper {
@@ -456,5 +456,142 @@
   left: 0;
   svg {
     transform: rotate(180deg);
+  }
+}
+
+//contacts 
+.l-contacts__content {
+  margin-top: 70px;
+  position: relative;
+}
+
+.l-contacts__wrapper {
+  position: absolute;
+  top: calc(50% - 549px/2);
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.l-contacts__content-info {
+  width: 456px;
+  height: 549px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
+  pointer-events: all;
+}
+
+.l-contacts__info-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.l-contacts__info-btn {
+  display: flex;
+}
+
+.l-contacts__info-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.l-contacts__info-item {
+  span {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 25.2px */
+  }
+  svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+}
+
+.l-contacts__info-title {
+  margin-bottom: 32px;
+  span {
+    color: #0B7075;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+
+
+.l-contacts__info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-map__main-frame {
+  max-width: 860px;
+  width: 100%;
+  height: 610px;
+}
+
+//wa
+.l-wa {
+  background: #3AC4A7;
+}
+
+.l-wa__content {
+  padding: 40px 0 44px 0;
+}
+
+.l-wa__grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.l-wa__row {
+
+}
+
+.l-wa__row-subtitle span {
+  color: #ffffff;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.l-wa__row-title span {
+  color: #ffffff;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.l-wa__row-action {
+  display: flex;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }
