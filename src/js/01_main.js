@@ -25,6 +25,28 @@ const swiperReviews = new Swiper('.swiper-reviews', {
   },
 });
 
+const btns = document.querySelectorAll('.l-contacts__info-btn .btn');
+const tabs = document.querySelectorAll(".l-contacts__info-tab");
+
+btns.forEach(element => {
+  element.addEventListener('click', function() {
+
+    btns.forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+    
+    this.classList.add("active");
+
+    const tabToShow = document.getElementById(this.getAttribute("data-tab"));
+
+    tabs.forEach(function(tab) {
+      tab.classList.remove("active");
+    });
+
+    tabToShow.classList.add("active");
+  });
+});
+
 function init() {
   var myMap = new ymaps.Map("map", {
     center: [62.024255, 129.726218],
