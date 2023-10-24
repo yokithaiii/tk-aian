@@ -25,26 +25,42 @@ const swiperReviews = new Swiper('.swiper-reviews', {
   },
 });
 
-const btns = document.querySelectorAll('.l-contacts__info-btn .btn');
-const tabs = document.querySelectorAll(".l-contacts__info-tab");
+$(document).ready(function() {
+  //map tabas
+  const $btns = $('.l-contacts__info-btn .btn');
+  const $tabs = $('.l-contacts__info-tab');
 
-btns.forEach(element => {
-  element.addEventListener('click', function() {
+  $btns.on('click', function() {
+    $btns.removeClass('active');
+    $(this).addClass('active');
 
-    btns.forEach(function(btn) {
-      btn.classList.remove("active");
+    const tabToShow = $(this).data('tab');
+    const $tab = $('#' + tabToShow);
+
+    $tabs.removeClass('active');
+    $tab.addClass('active');
+
+    $tabs.fadeOut(200, function() {
+      $tab.fadeIn(200);
     });
-    
-    this.classList.add("active");
-
-    const tabToShow = document.getElementById(this.getAttribute("data-tab"));
-
-    tabs.forEach(function(tab) {
-      tab.classList.remove("active");
-    });
-
-    tabToShow.classList.add("active");
+  
   });
+  //header dropdown services
+  const $dropdownBtn = $('.l-header__nav-dropdown-btn');
+  const $dropdownContent = $('.l-header__nav-dropdown-content');
+
+  $dropdownBtn.on('click', function(event) {
+    event.stopPropagation();
+
+    $(this).toggleClass('active');
+    $dropdownContent.toggleClass('active')
+  });
+
+  $(document).on('click', function() {
+    $dropdownContent.removeClass('active');
+    $dropdownBtn.removeClass('active');
+  });
+
 });
 
 function init() {
