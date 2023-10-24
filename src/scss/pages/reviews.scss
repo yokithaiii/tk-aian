@@ -1,0 +1,9 @@
+.l-reviews__grid {
+  column-count: 2;
+  gap: 20px;
+  padding-bottom: 100px;
+  .l-reviews__card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+}

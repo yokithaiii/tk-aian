@@ -1,4 +1,8 @@
-ymaps.ready(init);
+if (document.querySelector('#map')) {
+  ymaps.ready(init);
+}
+
+Fancybox.bind("[data-fancybox]", {});
 
 const swiperClients = new Swiper('.swiper-clients', {
   spaceBetween: 20,
@@ -18,6 +22,16 @@ const swiperClients = new Swiper('.swiper-clients', {
 const swiperReviews = new Swiper('.swiper-reviews', {
   slidesPerView: 1,
   spaceBetween: 20,
+  speed: 1000,
+  navigation: {
+    nextEl: '.l-reviews__card-next',
+    prevEl: '.l-reviews__card-prev',
+  },
+});
+
+const swiperFrames = new Swiper('.swiper-frames', {
+  slidesPerView: "auto",
+  spaceBetween: 40,
   speed: 1000,
   navigation: {
     nextEl: '.l-reviews__card-next',
