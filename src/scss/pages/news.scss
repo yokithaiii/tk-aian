@@ -1,0 +1,119 @@
+.l-news__page-section {
+    margin-top: 70px;
+    padding-bottom: 100px;
+}
+
+.l-news__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.l-news__grid-card {
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    background: white;
+	overflow: hidden;
+    img {
+        max-width: 240px;
+        width: 100%;
+        object-fit: cover;
+		height: 100%;
+    }
+}
+
+.l-news__grid-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 32px;
+    color: black;
+    span {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+    }
+    h1 {
+        font-size: 21px;
+        font-weight: 600;
+        line-height: normal;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+    p {
+        color: #000;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 140%;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+    }
+}
+
+.l-pagination {
+    padding-top: 60px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    position: relative;
+
+    .l-center {
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            li {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: all cubic-bezier(0.47, 0, 0.745, 0.715);
+				cursor: pointer;
+                span {
+					color: #000;
+                    text-align: center;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+                &:hover {
+                    background: #3ac4a7;
+                }
+                &.active {
+                    background: #3ac4a7;
+					span {
+						color: white;
+					}
+                }
+            }
+        }
+    }
+
+    .l-prev {
+        transform: rotate(180deg);
+    }
+    .l-prev,
+    .l-next {
+		cursor: pointer;
+        width: 40px;
+        height: 40px;
+        * {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

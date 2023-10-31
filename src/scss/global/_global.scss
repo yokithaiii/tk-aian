@@ -107,7 +107,7 @@ section:not(.l-banner, .l-wa, .l-inner) {
 .l-section__title {
 	margin-top: 48px;
 	max-width: 80%;
-	h3 {
+	* {
 		color: #09595D;
 		font-family: Raleway;
 		font-size: 42px;
