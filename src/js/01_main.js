@@ -1,4 +1,8 @@
-ymaps.ready(init);
+if (document.querySelector('#map')) {
+  ymaps.ready(init);
+}
+
+Fancybox.bind("[data-fancybox]", {});
 
 const swiperClients = new Swiper('.swiper-clients', {
   spaceBetween: 20,
@@ -23,6 +27,54 @@ const swiperReviews = new Swiper('.swiper-reviews', {
     nextEl: '.l-reviews__card-next',
     prevEl: '.l-reviews__card-prev',
   },
+});
+
+const swiperFrames = new Swiper('.swiper-frames', {
+  slidesPerView: "auto",
+  spaceBetween: 40,
+  speed: 1000,
+  navigation: {
+    nextEl: '.l-reviews__card-next',
+    prevEl: '.l-reviews__card-prev',
+  },
+});
+
+$(document).ready(function() {
+  //map tabas
+  const $btns = $('.l-contacts__info-btn .btn');
+  const $tabs = $('.l-contacts__info-tab');
+
+  $btns.on('click', function() {
+    $btns.removeClass('active');
+    $(this).addClass('active');
+
+    const tabToShow = $(this).data('tab');
+    const $tab = $('#' + tabToShow);
+
+    $tabs.removeClass('active');
+    $tab.addClass('active');
+
+    $tabs.fadeOut(200, function() {
+      $tab.fadeIn(200);
+    });
+  
+  });
+  //header dropdown services
+  const $dropdownBtn = $('.l-header__nav-dropdown-btn');
+  const $dropdownContent = $('.l-header__nav-dropdown-content');
+
+  $dropdownBtn.on('click', function(event) {
+    event.stopPropagation();
+
+    $(this).toggleClass('active');
+    $dropdownContent.toggleClass('active')
+  });
+
+  $(document).on('click', function() {
+    $dropdownContent.removeClass('active');
+    $dropdownBtn.removeClass('active');
+  });
+
 });
 
 function init() {

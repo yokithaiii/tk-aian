@@ -6,12 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="description" />
 	<meta name="keywords" content="keywords" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="description" />
+	<meta name="keywords" content="keywords" />
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
 
+	<link rel="stylesheet" href="css/fancybox.css" />
 	<link rel="stylesheet" href="css/swiper-bundle8.min.css" />
 	<link rel="stylesheet" href="css/style.min.css" />
 
@@ -22,34 +31,65 @@
 
 <body>
 	<header class="l-header">
-		<div class="l-wrapper">
-			<div class="l-header__content">
-				<div class="l-header__logo">
-					<a href="/">
-						<svg>
-							<use xlink:href="img/sprite.svg#sprite--logo" />
-						</svg>
-					</a>
-				</div>
-				<div class="l-header__nav">
-					<nav>
-						<ul>
-							<li><a href="#">О компании</a></li>
-							<li><a href="#">Услуги и тарифы</a></li>
-							<li><a href="#">Новости</a></li>
-							<li><a href="#">Документы</a></li>
-							<li><a href="#">Контакты</a></li>
-							<li><a href="#">Отзывы</a></li>
-							<li><a href="#">Калькулятор</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="l-header__action">
-					<a class="btn btn-white" href="#">Оформить заказ</a>
-				</div>
-			</div>
-		</div>
-	</header>
+  <div class="l-wrapper">
+    <div class="l-header__content">
+      <div class="l-header__logo">
+          <a href="/">
+            <svg>
+              <use xlink:href="img/sprite.svg#sprite--logo" />
+            </svg>
+          </a>
+      </div>
+      <div class="l-header__nav">
+        <nav>
+          <ul>
+            <li><a href="#">О компании</a></li>
+            <li class="l-header__nav-dropdown-btn">
+              <a href="#">Услуги и тарифы</a>
+              <ul class="l-header__nav-dropdown-content">
+                <li>
+                  <a href="#">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#sprite--service-1" />
+                    </svg>
+                    Сборные автомобильные автогрузоперевозки
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#sprite--service-2" />
+                    </svg>
+                    Прямые автомобильные грузоперевозки
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#sprite--service-3" />
+                    </svg>
+                    Железнодорожные грузоперевозки
+                  </a>
+                </li>
+              </ul>
+              <svg class="l-service__arrow">
+                <use xlink:href="img/sprite.svg#sprite--service-arrow" />
+              </svg>
+            </li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Документы</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Калькулятор</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="l-header__action">
+        <a class="btn btn-white" href="#">Оформить заказ</a>
+      </div>
+    </div>
+  </div>
+</header>
 
 	<main class="l-main">
 
@@ -540,53 +580,167 @@
 							<div class="l-contacts__content-info">
 								<div class="l-contacts__info-action">
 									<div class="l-contacts__info-btn">
-										<a class="btn btn-green active" data-coordinate="62.024255, 129.726218"
-											href="javascript:void(0);">Якутск</a>
+										<a class="btn btn-green active" data-tab="tab-1" data-coordinate="62.024255, 129.726218" href="javascript:void(0);">Якутск</a>
 									</div>
 									<div class="l-contacts__info-btn">
-										<a class="btn btn-green" data-coordinate="55.048013, 82.905086"
-											href="javascript:void(0);">Новосибирск</a>
+										<a class="btn btn-green" data-tab="tab-2" data-coordinate="55.048013, 82.905086" href="javascript:void(0);">Новосибирск</a>
 									</div>
 									<div class="l-contacts__info-btn">
-										<a class="btn btn-green" data-coordinate="55.461757, 37.583041"
-											href="javascript:void(0);">Москва</a>
+										<a class="btn btn-green" data-tab="tab-3" data-coordinate="55.461757, 37.583041" href="javascript:void(0);">Москва</a>
 									</div>
 								</div>
 								<div class="l-contacts__info-body">
-									<div class="l-contacts__info-item">
-										<div class="l-contacts__info-title">
-											<span>Офис</span>
+									<div class="l-contacts__info-tab active" id="tab-1">
+										<div class="l-contacts__info-item">
+											<div class="l-contacts__info-title">
+												<span>Офис</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_location" />
+												</svg>
+												<span>
+													ул. Октябрьская, 1/1, оф. 205
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_time" />
+												</svg>
+												<span>
+													09:00 – 19:00
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_tel" />
+												</svg>
+												<span>
+													+7-968-150-70-02
+												</span>
+											</div>
 										</div>
-										<div class="l-contacts__info-row">
-											<svg>
-												<use xlink:href="img/sprite.svg#sprite--contacts_location" />
-											</svg>
-											<span>
-												Улица Октябрьская, 1/1 205 офис;
-												<br>
-												2 этаж​
-												<br>
-												Октябрьский округ, Якутск, 677980
-											</span>
-										</div>
-										<div class="l-contacts__info-row">
-											<svg>
-												<use xlink:href="img/sprite.svg#sprite--contacts_time" />
-											</svg>
-											<span>
-												09:00 – 19:00
-											</span>
-										</div>
-										<div class="l-contacts__info-row">
-											<svg>
-												<use xlink:href="img/sprite.svg#sprite--contacts_tel" />
-											</svg>
-											<span>
-												+7-968-150-70-02
-											</span>
+										<div class="l-contacts__info-item">
+											<div class="l-contacts__info-title">
+												<span>Склад</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_location" />
+												</svg>
+												<span>
+													ул. Номская, 1а
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_time" />
+												</svg>
+												<span>
+													09:00 – 18:00
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_tel" />
+												</svg>
+												<span>
+													+7 968-150-70-02
+												</span>
+											</div>
 										</div>
 									</div>
-									<div class="contacts__info-item"></div>
+									<div class="l-contacts__info-tab" id="tab-2">
+										<div class="l-contacts__info-item">
+											<div class="l-contacts__info-title">
+												<span>Офис</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_location" />
+												</svg>
+												<span>
+													ул. Линейная, 30, оф. 504
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_time" />
+												</svg>
+												<span>
+													09:00 – 19:00
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_tel" />
+												</svg>
+												<span>
+													+7-968-150-70-02
+												</span>
+											</div>
+										</div>
+										<div class="l-contacts__info-item">
+											<div class="l-contacts__info-title">
+												<span>Склад</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_location" />
+												</svg>
+												<span>
+													Пристанский пер. 5/2
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_time" />
+												</svg>
+												<span>
+													09:00 – 18:00
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_tel" />
+												</svg>
+												<span>
+													+7 968-150-70-02
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="l-contacts__info-tab" id="tab-3">
+										<div class="l-contacts__info-item">
+											<div class="l-contacts__info-title">
+												<span>Склад</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_location" />
+												</svg>
+												<span>
+													г. Подольск, ул. Шамотная, 10
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_time" />
+												</svg>
+												<span>
+													09:00 – 18:00
+												</span>
+											</div>
+											<div class="l-contacts__info-row">
+												<svg>
+													<use xlink:href="img/sprite.svg#sprite--contacts_tel" />
+												</svg>
+												<span>
+													+7 968-150-70-02
+												</span>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -709,8 +863,10 @@
 		type="text/javascript">
 		</script>
 
-	<script src="js/swiper-bundle8.min.js"></script>
-	<script src="js/main.min.js"></script>
+<script src="js/fancybox.umd.js"></script>
+<script src="js/swiper-bundle8.min.js"></script>
+<script src="js/jquery-3.7.0.min.js"></script>
+<script src="js/main.min.js"></script>
 
 </body>
 
