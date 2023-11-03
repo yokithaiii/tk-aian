@@ -23,6 +23,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    gap: 20px;
+  }
 }
 
 .l-header__logo {
@@ -50,10 +53,26 @@
     line-height: normal;
     color: #FFFFFF;
   }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.l-header__mob-nav {
+  display: none;
+  svg {
+    width: 44px;
+    height: 44px;
+  }
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
 }
 
 .l-header__action {
-
+  @media screen and (max-width: 768px) {
+    margin-left: auto;
+  }
 }
 
 .l-header__nav-dropdown-btn {

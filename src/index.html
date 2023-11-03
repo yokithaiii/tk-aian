@@ -79,7 +79,7 @@
 						<div class="l-services__card">
 							<a href="#">
 								<div class="l-services__card-img">
-									<img src="/img/services-1.webp" alt="">
+									<img src="/img/auto-1.webp" alt="">
 								</div>
 								<div class="l-services__card-footer">
 									<div class="l-card__title">
@@ -98,7 +98,7 @@
 						<div class="l-services__card">
 							<a href="#">
 								<div class="l-services__card-img">
-									<img src="/img/services-2.webp" alt="">
+									<img src="/img/auto-2.webp" alt="">
 								</div>
 								<div class="l-services__card-footer">
 									<div class="l-card__title">
@@ -117,7 +117,7 @@
 						<div class="l-services__card">
 							<a href="#">
 								<div class="l-services__card-img">
-									<img src="/img/services-3.webp" alt="">
+									<img src="/img/auto-3.webp" alt="">
 								</div>
 								<div class="l-services__card-footer">
 									<div class="l-card__title">
@@ -649,6 +649,50 @@
 						</div>
 					</div>
 					<div id="map" style="height: 629px;"></div>
+					<script>
+						function init() {
+							var myMap = new ymaps.Map("map", {
+								center: [62.024255, 129.726218],
+								zoom: 16,
+								controls: ['zoomControl'],
+								behaviors: ["default", "scrollZoom"]
+							});
+							
+							var myPlacemark1 = new ymaps.Placemark(
+								[62.024255, 129.726218], 
+								{balloonContent: 'Транспортная компания "Айан"'},
+								{iconColor: '#3AC4A7'}
+							);
+							var myPlacemark2 = new ymaps.Placemark(
+								[55.048013, 82.905086], 
+								{balloonContent: 'Офис в Новосибирске'},
+								{iconColor: '#3AC4A7'}
+							);
+							var myPlacemark3 = new ymaps.Placemark(
+								[55.461757, 37.583041], 
+								{balloonContent: 'Офис в Москве'},
+								{iconColor: '#3AC4A7'}
+							);
+							myMap.geoObjects.add(myPlacemark1);
+							myMap.geoObjects.add(myPlacemark2);
+							myMap.geoObjects.add(myPlacemark3);
+							myMap.behaviors.disable("scrollZoom");
+
+							let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
+							locationBtns.forEach(element => {
+								element.addEventListener("click", (event) => {
+									let coordinate = element.getAttribute('data-coordinate').split(',',2);
+									myMap.setZoom(17);
+									myMap.panTo([+coordinate[0], +coordinate[1]], {
+										delay: 3000,
+										duration: 1000,
+										flying: true,
+									});
+								});
+							});
+						}
+						
+					</script>
 					<!-- <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A758cf0ca4c1214aed6193b8583b316d7a411742d07090d90ab4bd749cc470f78&amp;width=100%25&amp;height=629&amp;lang=ru_RU&amp;scroll=false"></script> -->
 				</div>
 			</div>

@@ -1,7 +1,3 @@
-if (document.querySelector('#map')) {
-  ymaps.ready(init);
-}
-
 Fancybox.bind("[data-fancybox]", {});
 
 const swiperClients = new Swiper('.swiper-clients', {
@@ -27,6 +23,17 @@ const swiperReviews = new Swiper('.swiper-reviews', {
     nextEl: '.l-reviews__card-next',
     prevEl: '.l-reviews__card-prev',
   },
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 'auto',
+      spaceBetween: 20
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+  }
 });
 
 const swiperFrames = new Swiper('.swiper-frames', {
@@ -77,6 +84,8 @@ $(document).ready(function() {
 
 });
 
+
+
 function init() {
   var myMap = new ymaps.Map("map", {
     center: [62.024255, 129.726218],
@@ -117,8 +126,6 @@ function init() {
     });
   });
 }
-
-
 
 
 var x, i, j, l, ll, selElmnt, a, b, c;

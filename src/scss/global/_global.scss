@@ -76,10 +76,16 @@ a {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 70px;
+	@media screen and (max-width: 768px) {
+		padding: 0 34px;
+	}
 }
 
 section:not(.l-banner, .l-wa, .l-inner) {
 	margin-top: 100px;
+	@media screen and (max-width: 768px) {
+		margin-top: 80px;
+	}
 }
 
 .l-section__category {
@@ -88,12 +94,15 @@ section:not(.l-banner, .l-wa, .l-inner) {
 	gap: 25px;
 	span {
 		color: #AFD5CE;
-		font-family: Raleway;
 		font-size: 20px;
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
 		white-space: nowrap;
+		@media screen and (max-width: 768px) {
+			font-size: 16px;
+			font-weight: 500;
+		}
 	}
 	.l-section__image {
 		width: 100%;
@@ -114,6 +123,13 @@ section:not(.l-banner, .l-wa, .l-inner) {
 		font-style: normal;
 		font-weight: 600;
 		line-height: normal;
+	}
+	@media screen and (max-width: 768px) {
+		margin-top: 24px;
+		h3 {
+			font-size: 34px;
+			font-weight: 600;
+		}
 	}
 }
 
