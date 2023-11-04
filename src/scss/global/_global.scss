@@ -79,6 +79,9 @@ a {
 	@media screen and (max-width: 768px) {
 		padding: 0 34px;
 	}
+	@media screen and (max-width: 425px) {
+    padding: 0 14px;
+  }
 }
 
 section:not(.l-banner, .l-wa, .l-inner) {
@@ -86,6 +89,9 @@ section:not(.l-banner, .l-wa, .l-inner) {
 	@media screen and (max-width: 768px) {
 		margin-top: 80px;
 	}
+	@media screen and (max-width: 425px) {
+    margin-top: 60px;
+  }
 }
 
 .l-section__category {
@@ -131,6 +137,13 @@ section:not(.l-banner, .l-wa, .l-inner) {
 			font-weight: 600;
 		}
 	}
+	@media screen and (max-width: 425px) {
+		max-width: 100%;
+    h3 {
+			font-size: 28px;
+			font-weight: 600;
+		}
+  }
 }
 
 .btn {
