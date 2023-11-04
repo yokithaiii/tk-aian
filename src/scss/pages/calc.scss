@@ -1,0 +1,26 @@
+.q-calc {
+    border-radius: 50px;
+    padding: 24px 50px;
+}
+
+.q-calc__item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    span {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.q-calc__item-content {
+}
+.q-calc__item-name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
