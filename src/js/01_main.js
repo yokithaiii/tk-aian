@@ -1,8 +1,23 @@
-if (document.querySelector('#map')) {
-  ymaps.ready(init);
-}
-
 Fancybox.bind("[data-fancybox]", {});
+ymaps.ready(init);
+const swiperServices = new Swiper('.l-services__grid.swiper', {
+  spaceBetween: 20,
+  slidesPerView: 1,
+  breakpoints: {
+    320: {
+      slidesPerView: 'auto',
+      spaceBetween: 20
+    },
+    426: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    767: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+  }
+});
 
 const swiperClients = new Swiper('.swiper-clients', {
   spaceBetween: 20,
@@ -27,6 +42,17 @@ const swiperReviews = new Swiper('.swiper-reviews', {
     nextEl: '.l-reviews__card-next',
     prevEl: '.l-reviews__card-prev',
   },
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 'auto',
+      spaceBetween: 20
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+  }
 });
 
 const swiperFrames = new Swiper('.swiper-frames', {
@@ -37,6 +63,14 @@ const swiperFrames = new Swiper('.swiper-frames', {
     nextEl: '.l-reviews__card-next',
     prevEl: '.l-reviews__card-prev',
   },
+  breakpoints: {
+    320: {
+      spaceBetween: 20
+    },
+    768: {
+      spaceBetween: 40
+    },
+  }
 });
 
 $(document).ready(function() {
@@ -54,9 +88,9 @@ $(document).ready(function() {
     $tabs.removeClass('active');
     $tab.addClass('active');
 
-    $tabs.fadeOut(200, function() {
-      $tab.fadeIn(200);
-    });
+    // $tabs.fadeOut(200, function() {
+    //   $tab.fadeIn(200);
+    // });
   
   });
   //header dropdown services
@@ -76,6 +110,8 @@ $(document).ready(function() {
   });
 
 });
+
+
 
 function init() {
   var myMap = new ymaps.Map("map", {
@@ -117,8 +153,6 @@ function init() {
     });
   });
 }
-
-
 
 
 var x, i, j, l, ll, selElmnt, a, b, c;

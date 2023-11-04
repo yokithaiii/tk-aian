@@ -6,4 +6,12 @@
     break-inside: avoid;
     margin-bottom: 20px;
   }
+  @media screen and (max-width: 620px) {
+    display: flex;
+    flex-direction: column;
+    .l-reviews__card {
+      break-inside: avoid;
+      margin-bottom: 0;
+    }
+  }
 }

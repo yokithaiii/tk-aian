@@ -16,6 +16,11 @@
       border-color: #3AC4A7;
       color: #3AC4A7;
     }
+    .l-header__mob-nav {
+      svg {
+        stroke: #000;
+      }
+    }
   }
 }
 
@@ -23,6 +28,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 1024px) {
+    gap: 20px;
+  }
 }
 
 .l-header__logo {
@@ -31,12 +39,23 @@
     width: 100%;
     height: 45px;
   }
+  @media screen and (max-width: 425px) {
+    max-width: 102px;
+    svg {
+      height: 27px;
+    }
+  }
 }
 
 .l-header__nav {
   ul {
     display: flex;
     gap: 24px;
+    @media screen and (max-width: 1200px) {
+      gap: 10px;
+      display: grid;
+      grid: 1fr 1fr / auto-flow;
+    }
   }
   li {
     position: relative;
@@ -49,11 +68,38 @@
     font-weight: 400;
     line-height: normal;
     color: #FFFFFF;
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.l-header__mob-nav {
+  display: none;
+  svg {
+    width: 44px;
+    height: 44px;
+    stroke: #FFF;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  @media screen and (max-width: 1024px) {
+    display: flex;
   }
 }
 
 .l-header__action {
-
+  a {
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 1024px) {
+    margin-left: auto;
+  }
+  @media screen and (max-width: 425px) {
+    display: none;
+  }
 }
 
 .l-header__nav-dropdown-btn {
@@ -105,7 +151,7 @@
 }
 
 .l-breadcrumbs {
-  margin-top: 48px;
+  margin-top: 24px;
   ul {
     display: flex;
     align-items: center;
