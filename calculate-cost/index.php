@@ -8,15 +8,14 @@ $APPLICATION->SetTitle("Калькулятор");
     <div class="l-wrapper">
       <div class="q-calc">
         <ul>
-        <li class="q-calc__item" v-for="(option, index) in data" :key="index">
+        <li class="q-calc__item">
             <span>Вид отправки</span>
-            <div @click="toggleDropdown(index)" class="q-calc__item-name">{{ option.name }}</div>
+            <div @click="toggleDropdown(index)" class="q-calc__item-name" v-for="(option, index) in data" :key="index">{{ option.name }}</div>
             <div class="q-calc__item-content" v-if="showDropdown === index">
               <ul>
-                <li v-for="item in option.items" :key="item.id">
+                <!-- <li v-for="item in option.items" :key="item.id">
                   {{ item.name }}
-                  <!-- Тут можно добавить дополнительную информацию, например, tarif_kg или tarif_m3 -->
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>

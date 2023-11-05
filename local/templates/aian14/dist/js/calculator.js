@@ -4,25 +4,25 @@ const {createApp, ref, onMounted} = Vue;
 
 createApp({
     setup() {
-        const showDropdown = ref(null); // null означает, что ни один дропдаун не открыт
-        const data = ref(null); // Инициализируем переменную для хранения данных
-        const isLoading = ref(false); // Переменная для отслеживания состояния загрузки
-        const error = ref(null); // Переменная для хранения возможной ошибки при запросе
+        const showDropdown = ref(null); 
+        const data = ref(null); 
+        const isLoading = ref(false); 
+        const error = ref(null);
 
         // Метод для получения данных с сервера
         const fetchData = async () => {
-            isLoading.value = true; // Начинаем загрузку
+            isLoading.value = true; 
             try {
                 const response = await fetch("http://aian14.ru/api/tariffs/");
                 if (!response.ok) {
                     throw new Error("Ошибка сети");
                 }
                 const json = await response.json();
-                data.value = json.data; // Присваиваем полученные данные переменной
+                data.value = json.data; 
             } catch (e) {
-                error.value = e; // В случае ошибки сохраняем ее в переменной
+                error.value = e; 
             } finally {
-                isLoading.value = false; // Загрузка завершена
+                isLoading.value = false;
             }
         };
 
@@ -33,17 +33,11 @@ createApp({
             showDropdown.value = showDropdown.value === index ? null : index;
         }
 
-        // Представим, что этот массив данных приходит с сервера
-        const options = ref({
-            data: [],
-        });
-
         // Верните переменные и методы, которые будут доступны в шаблоне
         onMounted(() => {
             fetchData();
         });
         return {
-            options,
             showDropdown,
             toggleDropdown,
             data,
