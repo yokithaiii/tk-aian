@@ -45,10 +45,13 @@ html {
 
 html,
 body {
-    min-height: 100%;
-    position: relative;
-    background: #eef6f5;
-    overflow-x: hidden;
+	min-height: 100%;
+	position: relative;
+	background: #EEF6F5;
+	overflow-x: hidden;
+	&.no-scroll {
+    overflow: hidden;
+	}
 }
 
 ul,
