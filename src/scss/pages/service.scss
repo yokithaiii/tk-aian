@@ -1,0 +1,130 @@
+.l-usluga {
+  .l-section__title {
+    max-width: 60%;
+    @media screen and (max-width: 768px) {
+      max-width: 80%;
+    }
+  }
+}
+
+.l-usluga__content {
+  margin-top: 40px;
+}
+
+.l-usluga__wrapper {
+}
+
+.l-usluga__subtitle {
+  max-width: 80%;
+  span {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 28px */
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.l-usluga__table {
+  margin-top: 70px;
+}
+
+.l-usluga__table-title {
+  h3 {
+    color: #09595D;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+.l-usluga__table-table {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media screen and (max-width: 425px) {
+    width: auto;
+    overflow: auto;
+    margin: 40px -14px 0 -14px;
+    padding: 1px 14px 1px 14px;
+  }
+}
+
+.l-usluga__table-head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  .l-usluga__table-col {
+    background: #E4F1EF;
+
+    color: #727978;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    &:first-child {
+      border-radius: 10px 0px 0px 0px;
+    }
+    &:last-child {
+      border-radius: 0px 10px 0px 0px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .l-usluga__table-col {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    grid-template-columns: repeat(3, 260px);
+  }
+}
+
+.l-usluga__table-col {
+  padding: 32px 0;
+  border: 1px solid #D0E6E3;
+  background: #FFF;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: -1px;
+
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.l-usluga__table-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.l-usluga__table-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  &:last-child {
+    .l-usluga__table-col {
+      &:first-child {
+        border-radius: 0px 0px 0px 10px;
+      }
+      &:last-child {
+        border-radius: 0px 0px 10px 0px;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    grid-template-columns: repeat(3, 260px);
+  }
+}

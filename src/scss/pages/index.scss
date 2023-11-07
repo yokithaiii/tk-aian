@@ -34,6 +34,11 @@
     margin-top: 24px;
     opacity: 0.8;
   }
+  @media screen and (max-width: 1024px) {
+    h3 {
+      max-width: 100%;
+    }
+  }
   @media screen and (max-width: 768px) {
     margin-top: 129px;
     max-width: 70%;
@@ -41,9 +46,7 @@
   @media screen and (max-width: 425px) {
     max-width: 100%;
     margin-top: 118px;
-    h3 {
-      max-width: 100%;
-    }
+
   }
 }
 
@@ -218,9 +221,9 @@
   height: 257px;
   img {
     width: 100%;
-    position: absolute;
-    top: 32px;
-    left: 32px;
+    // position: absolute;
+    // top: 32px;
+    // left: 32px;
     height: calc(257px - 32px);
     object-fit: contain;
     @media screen and (max-width: 768px) {
@@ -238,6 +241,9 @@
 
 .l-services__card-footer {
   padding: 57px 32px 32px 32px;
+  @media screen and (max-width: 1024px) {
+    padding: 20px 14px 14px 14px;
+  }
   @media screen and (max-width: 768px) {
     padding: 33px 14px 14px 14px;
   }
@@ -250,6 +256,9 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    @media screen and (max-width: 1200px) {
+      font-size: 22px;
+    }
     @media screen and (max-width: 768px) {
       font-size: 18px;
       font-weight: 600;
@@ -366,6 +375,7 @@
   border-radius: 10px;
   overflow: hidden;
   background: #FFF;
+  // transition: .2s;
   a {
     height: 100%;
     display: flex;
@@ -756,8 +766,11 @@
   flex-direction: column;
   gap: 32px;
   display: none;
+  opacity: 0;
+  transition: opacity .3s;
   &.active {
     display: flex;
+    opacity: 1;
   }
 }
 
