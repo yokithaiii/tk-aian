@@ -2,7 +2,7 @@
 Fancybox.bind("[data-fancybox]", {});
 
 //init yandex.map.js
-ymaps.ready(init);
+// ymaps.ready(init);
 
 //swiper.js
 const swiperServices = new Swiper('.l-services__grid.swiper', {
@@ -173,46 +173,46 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //yandex map function
-function init() {
-  var myMap = new ymaps.Map("map", {
-    center: [62.024255, 129.726218],
-    zoom: 16,
-    controls: ['zoomControl'],
-    behaviors: ["default", "scrollZoom"]
-  });
-  var myPlacemark1 = new ymaps.Placemark(
-    [62.024255, 129.726218], 
-    {balloonContent: 'Транспортная компания "Айан"'},
-    {iconColor: '#3AC4A7'}
-  );
-  var myPlacemark2 = new ymaps.Placemark(
-    [55.048013, 82.905086], 
-    {balloonContent: 'Офис в Новосибирске'},
-    {iconColor: '#3AC4A7'}
-  );
-  var myPlacemark3 = new ymaps.Placemark(
-    [55.461757, 37.583041], 
-    {balloonContent: 'Офис в Москве'},
-    {iconColor: '#3AC4A7'}
-  );
-  myMap.behaviors.disable("scrollZoom");
-  myMap.geoObjects.add(myPlacemark1);
-  myMap.geoObjects.add(myPlacemark2);
-  myMap.geoObjects.add(myPlacemark3);
+// function init() {
+//   var myMap = new ymaps.Map("map", {
+//     center: [62.024255, 129.726218],
+//     zoom: 16,
+//     controls: ['zoomControl'],
+//     behaviors: ["default", "scrollZoom"]
+//   });
+//   var myPlacemark1 = new ymaps.Placemark(
+//     [62.024255, 129.726218], 
+//     {balloonContent: 'Транспортная компания "Айан"'},
+//     {iconColor: '#3AC4A7'}
+//   );
+//   var myPlacemark2 = new ymaps.Placemark(
+//     [55.048013, 82.905086], 
+//     {balloonContent: 'Офис в Новосибирске'},
+//     {iconColor: '#3AC4A7'}
+//   );
+//   var myPlacemark3 = new ymaps.Placemark(
+//     [55.461757, 37.583041], 
+//     {balloonContent: 'Офис в Москве'},
+//     {iconColor: '#3AC4A7'}
+//   );
+//   myMap.behaviors.disable("scrollZoom");
+//   myMap.geoObjects.add(myPlacemark1);
+//   myMap.geoObjects.add(myPlacemark2);
+//   myMap.geoObjects.add(myPlacemark3);
 
-  let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
-  locationBtns.forEach(element => {
-    element.addEventListener("click", (event) => {
-      let coordinate = element.getAttribute('data-coordinate').split(',',2);
-      myMap.setZoom(17);
-      myMap.panTo([+coordinate[0], +coordinate[1]], {
-        flying: true,
-        delay: 1500,
-        duration: 1500,
-      });
-    });
-  });
-}
+//   let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
+//   locationBtns.forEach(element => {
+//     element.addEventListener("click", (event) => {
+//       let coordinate = element.getAttribute('data-coordinate').split(',',2);
+//       myMap.setZoom(17);
+//       myMap.panTo([+coordinate[0], +coordinate[1]], {
+//         flying: true,
+//         delay: 1500,
+//         duration: 1500,
+//       });
+//     });
+//   });
+// }
 
 //custom select
 var x, i, j, l, ll, selElmnt, a, b, c;
