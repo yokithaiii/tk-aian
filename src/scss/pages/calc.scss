@@ -17,6 +17,20 @@
     display: flex;
     gap: 28px;
     width: 100%;
+    &.active {
+        li {
+            &:not(:first-child) {
+                pointer-events: all;
+                opacity: 1;
+            }
+        }
+    }
+    li {
+        &:not(:first-child) {
+            pointer-events: none;
+            opacity: 0.3;
+        }
+    }
 }
 
 .q-calc__item {
@@ -27,9 +41,13 @@
     padding-right: 28px;
     width: 100%;
     position: relative;
+    cursor: pointer;
     &:last-child {
         border-right: unset;
         padding-right: unset;
+    }
+    &:nth-child(4) {
+        width: 41%;
     }
     .l-title {
         color: rgba(255, 255, 255, 0.5);
@@ -46,11 +64,12 @@
     left: -20px;
     display: none;
     flex-direction: column;
-    gap: 14px;
+    gap: 24px;
     padding: 20px 30px;
     border-radius: 20px;
     background: rgba(21, 65, 65, 0.8);
-    width: 100%;
+    width: auto;
+    white-space: nowrap;
 
     backdrop-filter: blur(8px);
     overflow: hidden;
@@ -66,7 +85,6 @@
         font-weight: 400;
         line-height: normal;
         cursor: pointer;
-
     }
 }
 .q-calc__item-block {
@@ -94,5 +112,46 @@
         height: 20px;
         display: block;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='10' cy='10' r='10' fill='%233B5F5F'/%3E%3Cpath d='M10 15L14.3301 7.5H5.66987L10 15Z' fill='white'/%3E%3C/svg%3E");
+    }
+}
+
+.q-calc__action {
+    opacity: 0.5;
+    pointer-events: none;
+    &.active {
+        pointer-events: all;
+        opacity: 1;
+    }
+}
+
+.q-calc-number {
+    border: none;
+    background: transparent;
+    width: 100%;
+    color: #fff;
+    max-width: 50px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    &:focus-visible {
+        outline: none;
+    }
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.q-calc__number-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    span {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
     }
 }

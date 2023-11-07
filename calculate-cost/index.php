@@ -7,62 +7,68 @@ $APPLICATION->SetTitle("Калькулятор");
 <section class="l-calc__section">
 			<div class="l-wrapper">
 				<div class="q-calc">
-					<ul class="q-calc__list">
+					<ul class="q-calc__list" :class="selectedCategory != null ? 'active' : ''">
 						<li class="q-calc__item">
 							<span class="l-title">Вид отправки</span>
-							<div class="q-calc__item-block">
-								<span class="l-name">Сборная перевозка</span>
+							<div class="q-calc__item-block" @click="toggleDropdown(1)">
+								<span class="l-name">{{selectedCategory == null ? 'Выберите' : selectedCategory.name}}</span>
 								<span class="l-icon__arrow"></span>
 							</div>
-							<div class="q-calc__item-content">
-								<span class="">ITEM das</span>
-								<span class="">ITEM das</span>
-								<span class="">ITEM das</span>
+							<div class="q-calc__item-content" :class="showDropdown == 1 ? 'active' : ''">
+								<span class="" v-for="(item, index) in data" :key="item.id">
+									<span @click="pickOtpravka(item)">{{item.name}}</span>	
+								</span>
 							</div>
 						</li>
 						<li class="q-calc__item">
 							<span class="l-title">Пункт отправки</span>
-							<div class="q-calc__item-block">
-								<span class="l-name">Город</span>
+							<div class="q-calc__item-block" @click='toggleDropdown(2)'>
+								<span class="l-name">{{ selectedCity.name == undefined ? 'Город' : selectedCity.from }}</span>
 								<span class="l-icon__arrow"></span>
 							</div>
-							<div class="q-calc__item-content">
-								<span class="">ITEM das</span>
-								<span class="">ITEM das</span>
-								<span class="">ITEM das</span>
+							<div class="q-calc__item-content" :class="showDropdown == 2 ? 'active' : ''">
+								<span class="" @click="pickCity('other')">Другой город</span>
+								<span v-for="(item, i) in selectedCategoryItems" :key="i">
+									<span @click="pickCity(item)">
+										{{ item?.name }}
+									</span>
+								</span>
 							</div>
 						</li>
 						<li class="q-calc__item">
 							<span class="l-title">Пункт прибытия</span>
 							<div class="q-calc__item-block">
-								<span class="l-name">Город</span>
-								<span class="l-icon__arrow"></span>
-							</div>
-							<div class="q-calc__item-content">
-								<span class="">ITEM das</span>
-								<span class="">ITEM das</span>
-								<span class="">ITEM das</span>
+								<span class="l-name">{{ selectedCity.name == undefined? 'Город' : selectedCity.to }}</span>
 							</div>
 						</li>
 						<li class="q-calc__item">
 							<span class="l-title">Вес</span>
-							<div class="q-calc__item-block">
-								<input id="ves"  value="0" type="number" hidden/>
-								<label for="ves" class="l-name">100 кг</label>
+							<div class="q-calc__item-block" >
+								<span class="q-calc__number-input">
+									<input class="q-calc-number" id="ves" v-model="weigth" type="number" />
+									<span>кг</span>
+								</span>
 							</div>
 						</li>
 						<li class="q-calc__item">
 							<span class="l-title">Объем</span>
 							<div class="q-calc__item-block">
-								<input id="obem"  value="0" type="number" hidden/>
-								<label for="obem" class="l-name">10 м3</label>
+								<span class="q-calc__number-input">
+									<input class="q-calc-number" id="obem" v-model="volume" type="number" />
+									<span>м3</span>
+								</span>
 							</div>
 						</li>
 					</ul>
-					<div class="l-calc__action">
+					<div @click="calculate" class="l-calc__action q-calc__action " :class="selectedCategory != null ? 'active' : ''">
 						<a class="btn btn-yellow" href="javascript:void(0)">Рассчитать</a>
 					</div>
 				</div>
+				<pre>
+					{{selectedCity}}
+					{{weigth}}
+					{{volume}}
+				</pre>
 			</div>
 		</section>
 </div>
