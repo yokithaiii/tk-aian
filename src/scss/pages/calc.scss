@@ -146,12 +146,55 @@
 .q-calc__number-input {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 2px;
     white-space: nowrap;
     span {
         color: #fff;
         font-size: 20px;
         font-weight: 400;
         line-height: normal;
+    }
+}
+
+.l-calc__summ-content {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 64px;
+    align-items: center;
+    border-radius: 10px;
+    background: #fff;
+    margin-top: 70px;
+    .l-space-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .l-summ__item {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+    .l-text {
+        color: #000;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        &.l-14 {
+            font-size: 14px;
+        }
+        &.l-21 {
+            font-size: 21px;
+        }
+        &.l-28 {
+            font-size: 21px;
+            font-weight: 600 !important;
+        }
+    }
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }

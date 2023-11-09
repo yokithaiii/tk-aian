@@ -1,12 +1,18 @@
 .l-news__page-section {
     margin-top: 70px;
     padding-bottom: 100px;
+    @media screen and (max-width: 425px) {
+        margin-top: 40px !important;
+    }
 }
 
 .l-news__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .l-news__grid-card {
@@ -21,6 +27,18 @@
         object-fit: cover;
         height: 100%;
     }
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+        img {
+            max-width: 100%;
+            max-height: 240px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        img {
+            max-height: 210px;
+        }
+    }
 }
 
 .l-news__grid-card__content {
@@ -29,6 +47,9 @@
     gap: 10px;
     padding: 32px;
     color: black;
+    @media screen and (max-width: 1024px) {
+        padding: 14px;
+    }
     span {
         font-size: 14px;
         font-style: normal;
@@ -44,6 +65,10 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
+        @media screen and (max-width: 560px) {
+            font-size: 18px;
+            -webkit-line-clamp: 2;
+        }
     }
     p {
         color: #000;
@@ -55,6 +80,10 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
+        @media screen and (max-width: 560px) {
+            font-size: 14px;
+            -webkit-line-clamp: 2;
+        }
     }
 }
 
@@ -67,12 +96,17 @@
     margin: 0 auto;
 
     position: relative;
-
+    @media screen and (max-width: 560px) {
+        gap: 20px;
+    }
     .l-center {
         ul {
             display: flex;
             align-items: center;
             gap: 10px;
+            @media screen and (max-width: 560px) {
+                gap: 5px;
+            }
             li {
                 width: 40px;
                 height: 40px;

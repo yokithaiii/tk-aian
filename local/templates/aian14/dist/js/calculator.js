@@ -19,7 +19,7 @@ createApp({
         const fetchData = async () => {
             isLoading.value = true; 
             try {
-                const response = await fetch("http://aian14.ru/api/tariffs/");
+                const response = await fetch("https://aian14.ru/api/tariffs/");
                 if (!response.ok) {
                     throw new Error("Ошибка сети");
                 }
@@ -38,6 +38,7 @@ createApp({
         };
 
         const pickOtpravka = (category) => {
+            summ.value.active = false;
             selectedCity.value = {};
             selectedCategory.value = category;
             selectedCategoryItems.value = category.items;
@@ -45,16 +46,21 @@ createApp({
         };
 
         const pickCity = (city) => {
+            
             if(city == 'other') {
+                summ.value.other = true;
                 selectedCity.value.name = 'Другой город';
                 selectedCity.value.from = 'Другой город';
                 selectedCity.value.to = "Якутск";
                 selectedCity.value.tarif_kg = 0;
                 selectedCity.value.tarif_m3 = 0;
             } else {
+                summ.value.other = false;
+                summ.value.active = false;
                 selectedCity.value.name = city.name;
                 selectedCity.value.from = city.from;
                 selectedCity.value.to = city.to;
+                selectedCity.value.tarif_kg = city.tarif_kg;
                 selectedCity.value.tarif_kg = city.tarif_kg;
                 selectedCity.value.tarif_m3 = city.tarif_m3;
                 selectedCity.value.delivery_time = city.delivery_time;
@@ -65,14 +71,25 @@ createApp({
         };  
 
         const summ = ref({
-            weigth:null,
-            volume:null,
-            time: null
+            price: null,
+            time: null,
+            active: false,
+            other: false,
         })
 
         const calculate = () => {
-            // selectedCity.value.tarif_kg * weigth
-            
+            // Убедитесь, что все значения заданы и являются числами
+            if (weigth.value && selectedCity.value.tarif_kg && volume.value && selectedCity.value.tarif_m3) {
+                const weightCost = weigth.value * parseFloat(selectedCity.value.tarif_kg.price);
+                const volumeCost = volume.value * parseFloat(selectedCity.value.tarif_m3.price);
+                summ.value.time = selectedCity.value.delivery_time;
+        
+                // Возвращаем максимальное значение стоимости, учитывая вес и объем
+                summ.value.active = true;
+                return summ.value.price = Math.max(weightCost, volumeCost);
+            }
+            summ.value.active = false;
+            return null; // Если какие-то значения не заданы, возвращаем null или обрабатываем ошибку
         };
 
         // Верните переменные и методы, которые будут доступны в шаблоне
@@ -93,7 +110,8 @@ createApp({
             pickCity,
             weigth,
             volume,
-            calculate
+            calculate,
+            summ
         };
     },
 }).mount("#app");
