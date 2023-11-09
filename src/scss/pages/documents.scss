@@ -1,11 +1,18 @@
 .l-documents__section {
     margin-bottom: 100px;
+    @media screen and (max-width:768px) {
+        margin-bottom: 60px;
+        margin-top: 40px !important;
+    }
 }
 
 .l-doc__gird {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    @media screen and (max-width:600px) {
+        grid-template-columns: 1fr;
+    }
 }
 .l-doc__grid-list {
     background: white;
@@ -13,14 +20,15 @@
     .l-list-item {
 		padding: 32px;
 		display: block;
+        @media screen and (max-width:1024px) {
+            padding: 16px;
+        }
     }
 }
 
 .l-doc-preview {
-    overflow: hidden;
-    padding-top: 30px;
 	height: 100%;
-    border-radius: 10px;
+    
 }
 .l-doc-preview::-webkit-scrollbar {
     display: none !important;
@@ -36,6 +44,9 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+        @media screen and (max-width:768px) {
+            font-size: 18px;
+        }
     }
     .l-icon {
         display: flex;
@@ -54,4 +65,11 @@
 .l-doc-preview__block {
 	overflow: hidden;
 	height: 300px;
+
+    overflow: hidden;
+    padding-top: 30px;
+    border-radius: 10px;
+    @media screen and (max-width:1024px) {
+        height: 160px;
+    }
 }
