@@ -39,12 +39,11 @@
 }
 
 .l-footer__top-col {
-  @media screen and (max-width: 1439px) {
-    &:nth-child(4) {
-      display: flex;
-      justify-content: flex-end;
-    }
+  &:nth-child(4) {
+    display: flex;
+    justify-content: flex-end;
   }
+
   @media screen and (max-width: 1024px) {
     &:nth-child(1) {
       grid-column: 1/2;
