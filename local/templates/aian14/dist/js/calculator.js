@@ -1,12 +1,12 @@
 console.dir("from calc.js");
-const {createApp, ref, onMounted} = Vue;
+const { createApp, ref, onMounted } = Vue;
 // import { ref, onMounted, createApp } from 'vue';
 
 createApp({
     setup() {
-        const showDropdown = ref(null); 
-        const data = ref(null); 
-        const isLoading = ref(false); 
+        const showDropdown = ref(null);
+        const data = ref(null);
+        const isLoading = ref(false);
         const error = ref(null);
         const selectedCategory = ref(null);
         const selectedCity = ref({});
@@ -17,16 +17,16 @@ createApp({
 
         // Метод для получения данных с сервера
         const fetchData = async () => {
-            isLoading.value = true; 
+            isLoading.value = true;
             try {
                 const response = await fetch("https://aian14.ru/api/tariffs/");
                 if (!response.ok) {
                     throw new Error("Ошибка сети");
                 }
                 const json = await response.json();
-                data.value = json.data; 
+                data.value = json.data;
             } catch (e) {
-                error.value = e; 
+                error.value = e;
             } finally {
                 isLoading.value = false;
             }
@@ -35,7 +35,7 @@ createApp({
         // Функция для переключения дропдауна
         function toggleDropdown(index) {
             showDropdown.value = showDropdown.value === index ? null : index;
-        };
+        }
 
         const pickOtpravka = (category) => {
             summ.value.active = false;
@@ -46,11 +46,10 @@ createApp({
         };
 
         const pickCity = (city) => {
-            
-            if(city == 'other') {
+            if (city == "other") {
                 summ.value.other = true;
-                selectedCity.value.name = 'Другой город';
-                selectedCity.value.from = 'Другой город';
+                selectedCity.value.name = "Другой город";
+                selectedCity.value.from = "Другой город";
                 selectedCity.value.to = "Якутск";
                 selectedCity.value.tarif_kg = 0;
                 selectedCity.value.tarif_m3 = 0;
@@ -67,29 +66,44 @@ createApp({
                 // summ.value.time = city.delivery_time;
             }
 
-            showDropdown.value = null; 
-        };  
+            showDropdown.value = null;
+        };
 
         const summ = ref({
             price: null,
             time: null,
             active: false,
             other: false,
-        })
+        });
 
         const calculate = () => {
             // Убедитесь, что все значения заданы и являются числами
-            if (weigth.value && selectedCity.value.tarif_kg && volume.value && selectedCity.value.tarif_m3) {
-                const weightCost = weigth.value * parseFloat(selectedCity.value.tarif_kg.price);
-                const volumeCost = volume.value * parseFloat(selectedCity.value.tarif_m3.price);
+            if (
+                weigth.value &&
+                selectedCity.value.tarif_kg &&
+                volume.value &&
+                selectedCity.value.tarif_m3
+            ) {
+                const weightCost =
+                    weigth.value *
+                    parseFloat(selectedCity.value.tarif_kg.price);
+                const volumeCost =
+                    volume.value *
+                    parseFloat(selectedCity.value.tarif_m3.price);
                 summ.value.time = selectedCity.value.delivery_time;
-        
+
                 // Возвращаем максимальное значение стоимости, учитывая вес и объем
                 summ.value.active = true;
-                return summ.value.price = Math.max(weightCost, volumeCost);
+                return (summ.value.price = Math.max(weightCost, volumeCost));
             }
             summ.value.active = false;
             return null; // Если какие-то значения не заданы, возвращаем null или обрабатываем ошибку
+        };
+
+        const clearInput = (event) => {
+            if (event.target.value == 0) {
+                event.target.value = "";
+            }
         };
 
         // Верните переменные и методы, которые будут доступны в шаблоне
@@ -111,7 +125,8 @@ createApp({
             weigth,
             volume,
             calculate,
-            summ
+            summ,
+            clearInput,
         };
     },
 }).mount("#app");

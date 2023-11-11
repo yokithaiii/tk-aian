@@ -198,3 +198,26 @@
         gap: 10px;
     }
 }
+
+.l-calc__summ-oformleine {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    .l-text {
+        color: #000;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.l-main__calc {
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    width: 100%;
+    @media screen and (max-width: 425px) {
+        display: none;
+    }
+}
