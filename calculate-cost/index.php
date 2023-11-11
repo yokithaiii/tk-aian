@@ -30,7 +30,7 @@ $APPLICATION->SetTitle("Калькулятор");
 							<span class="" @click="pickCity('other')">Другой город</span>
 							<span v-for="(item, i) in selectedCategoryItems" :key="i">
 								<span @click="pickCity(item)">
-									{{ item?.name }}
+									{{ item.name }}
 								</span>
 							</span>
 						</div>
@@ -67,7 +67,7 @@ $APPLICATION->SetTitle("Калькулятор");
 
 			<div class="l-calc__summ-content" v-if="summ.active">
 				<template v-if="summ.other">
-					TEST
+					TEST other path
 				</template>
 				<template v-else>
 					<div class="l-space-between">
@@ -79,16 +79,20 @@ $APPLICATION->SetTitle("Калькулятор");
 									</g>
 								</svg>
 		
-								<div class="flex-col">
+								<div class="flex-col" v-if="localData == null">
 									<span class="l-text l-14">{{selectedCategory?.name}}</span>
 									<span class="l-text l-21">{{selectedCity?.name}}</span>
+								</div>
+								<div class="flex-col" v-else>
+									<span class="l-text l-14">{{localData.selectedCategory}}</span>
+									<span class="l-text l-21">{{localData.selectedCity}}</span>
 								</div>
 
 							</div>
 						</div>
 						<span class="l-text l-28">{{summ?.price}} ₽</span>
 					</div>
-
+					<hr>
 					<div class="l-space-between">
 						<div class="l-summ__item">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
@@ -103,8 +107,11 @@ $APPLICATION->SetTitle("Калькулятор");
 							</svg>
 							<span class="l-text l-21">В пути</span>
 						</div>
-						<div>
+						<div v-if="localData == null">
 							<span class="l-text l-28">{{summ?.time}}</span>
+						</div>
+						<div v-else>
+							<span class="l-text l-28">{{localData.time}}</span>
 						</div>
 					</div>
 				</template>
@@ -113,7 +120,7 @@ $APPLICATION->SetTitle("Калькулятор");
 			<div class="l-calc__summ-oformleine" v-if="summ.active">
 					<spa class="l-text">Перейти к отправки груза</spa>
 					<div class="l-calc__action q-calc__action active">
-						<a class="btn btn-yellow" href="#">Оформить заказ</a>
+						<a class="btn btn-yellow" href="/order/">Оформить заказ</a>
 					</div>
 				</div>
 		</div>
