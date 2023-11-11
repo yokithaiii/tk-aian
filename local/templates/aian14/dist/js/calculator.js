@@ -15,6 +15,7 @@ if (document.querySelector("#app")) {
             const weigth = ref(0);
             const volume = ref(0);
 
+            const localData = ref(null);
             const fromIndexPageState = ref(false);
 
             // Метод для получения данных с сервера
@@ -43,6 +44,8 @@ if (document.querySelector("#app")) {
             }
 
             const pickOtpravka = (category) => {
+                localStorage.removeItem("calculationResult");
+                localData.value = null;
                 summ.value.active = false;
                 selectedCity.value = {};
                 selectedCategory.value = category;
@@ -55,7 +58,7 @@ if (document.querySelector("#app")) {
                     summ.value.other = true;
                     selectedCity.value.name = "Другой город";
                     selectedCity.value.from = "Другой город";
-                    selectedCity.value.to = "Якутск";
+                    selectedCity.value.to = "--/--";
                     selectedCity.value.tarif_kg = 0;
                     selectedCity.value.tarif_m3 = 0;
                 } else {
@@ -135,8 +138,6 @@ if (document.querySelector("#app")) {
                 }
             };
 
-            const localData = ref(null);
-
             onBeforeMount(async () => {
                 await fetchData();
             });
@@ -150,7 +151,7 @@ if (document.querySelector("#app")) {
 
                     localData.value = result;
 
-                    if (result.fromIndexPageState == true) {
+                    if (result && result.fromIndexPageState == true) {
                         summ.value.active = true;
                         summ.value.price = result.summ;
                     }
@@ -184,3 +185,20 @@ if (document.querySelector("#app")) {
         },
     }).mount("#app");
 }
+
+const locomotiveScroll = new LocomotiveScroll({
+    lenisOptions: {
+        wrapper: window,
+        content: document.documentElement,
+        lerp: 0.1,
+        duration: 0.4,
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        smoothTouch: false,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        normalizeWheel: true,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+    },
+});

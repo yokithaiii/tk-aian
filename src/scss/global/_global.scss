@@ -4,6 +4,21 @@
     box-sizing: border-box;
     font-family: "Raleway";
 }
+html.lenis {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
 
 .flex {
     display: flex;
@@ -39,19 +54,48 @@
     flex-direction: column;
 }
 
+.l-from-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all .4s ease;
+    &.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.l-from-top {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all .3s linear;
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.l-btn__wa-calc {
+    display: none;
+    white-space: nowrap;
+    align-items: center;
+    gap: 5px;
+    padding: 14px 8px !important;
+    &.active {
+        display: flex;
+    }
+}
+
 html {
     font-size: 16px;
 }
 
 html,
 body {
-	min-height: 100%;
-	position: relative;
-	background: #EEF6F5;
-	overflow-x: hidden;
-	&.no-scroll {
-    overflow: hidden;
-	}
+    min-height: 100%;
+    position: relative;
+    background: #eef6f5;
+    overflow-x: hidden;
+    &.no-scroll {
+        overflow: hidden;
+    }
 }
 
 ul,
