@@ -4,29 +4,6 @@ if (document.querySelector('#map')) {
 
 Fancybox.bind('[data-fancybox]', {})
 
-//init yandex.map.js
-// ymaps.ready(init);
-
-//swiper.js
-const swiperServices = new Swiper('.l-services__grid.swiper', {
-  spaceBetween: 20,
-  slidesPerView: 1,
-  breakpoints: {
-    320: {
-      slidesPerView: 'auto',
-      spaceBetween: 20
-    },
-    769: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    }
-  }
-});
-
 const swiperClients = new Swiper('.swiper-clients', {
 	spaceBetween: 20,
 	centeredSlides: false,
@@ -43,137 +20,88 @@ const swiperClients = new Swiper('.swiper-clients', {
 })
 
 const swiperReviews = new Swiper('.swiper-reviews', {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  speed: 1000,
-  navigation: {
-    nextEl: '.l-reviews__card-next',
-    prevEl: '.l-reviews__card-prev',
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 'auto',
-      spaceBetween: 20
-    },
-    768: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-  }
-});
+	slidesPerView: 1,
+	spaceBetween: 20,
+	speed: 1000,
+	navigation: {
+		nextEl: '.l-reviews__card-next',
+		prevEl: '.l-reviews__card-prev',
+	},
+})
 
 const swiperFrames = new Swiper('.swiper-frames', {
-  slidesPerView: "auto",
-  spaceBetween: 40,
-  speed: 1000,
-  navigation: {
-    nextEl: '.l-reviews__card-next',
-    prevEl: '.l-reviews__card-prev',
-  },
-  breakpoints: {
-    320: {
-      spaceBetween: 20
-    },
-    768: {
-      spaceBetween: 40
-    },
-  }
-});
+	slidesPerView: 'auto',
+	spaceBetween: 40,
+	speed: 1000,
+	navigation: {
+		nextEl: '.l-reviews__card-next',
+		prevEl: '.l-reviews__card-prev',
+	},
+})
 
-const swiperServiceFrames = new Swiper('.service-frames', {
-  slidesPerView: "auto",
-  spaceBetween: 40,
-  speed: 1000,
-  navigation: {
-    nextEl: '.l-reviews__card-next',
-    prevEl: '.l-reviews__card-prev',
-  },
-  breakpoints: {
-    320: {
-      spaceBetween: 20
-    },
-    768: {
-      spaceBetween: 40
-    },
-  }
-});
+$(document).ready(function () {
+	//map tabas
+	const $btns = $('.l-contacts__info-btn .btn')
+	const $tabs = $('.l-contacts__info-tab')
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Map tabs
-  const btns = document.querySelectorAll('.l-contacts__info-btn .btn');
-  const tabs = document.querySelectorAll('.l-contacts__info-tab');
+	$btns.on('click', function () {
+		$btns.removeClass('active')
+		$(this).addClass('active')
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      btns.forEach(item => item.classList.remove('active'));
-      this.classList.add('active');
+		const tabToShow = $(this).data('tab')
+		const $tab = $('#' + tabToShow)
 
-      const tabToShow = this.getAttribute('data-tab');
-      const tab = document.getElementById(tabToShow);
+		$tabs.removeClass('active')
+		$tab.addClass('active')
 
-      tabs.forEach(tab => tab.classList.remove('active'));
-      tab.classList.add('active');
-      tab.style.opacity = 0;
+		$tabs.fadeOut(200, function () {
+			$tab.fadeIn(200)
+		})
+	})
+	//header dropdown services
+	const $dropdownBtn = $('.l-header__nav-dropdown-btn')
+	const $dropdownContent = $('.l-header__nav-dropdown-content')
 
-      setTimeout(function() {
-        tab.style.opacity = 1;
-      }, 100);
+	$dropdownBtn.on('click', function (event) {
+		event.stopPropagation()
 
-    });
-  });
+		$(this).toggleClass('active')
+		$dropdownContent.toggleClass('active')
+	})
 
-  // Header dropdown services
-  const dropdownBtn = document.querySelectorAll('.l-header__nav-dropdown-btn');
-  const dropdownContent = document.querySelectorAll('.l-header__nav-dropdown-content');
+	$(document).on('click', function () {
+		$dropdownContent.removeClass('active')
+		$dropdownBtn.removeClass('active')
+	})
+})
 
-  dropdownBtn.forEach(btn => {
-    btn.addEventListener('click', function(event) {
-      event.stopPropagation();
+function init() {
+	var myMap = new ymaps.Map('map', {
+		center: [62.024255, 129.726218],
+		zoom: 16,
+		controls: ['zoomControl'],
+		behaviors: ['default', 'scrollZoom'],
+	})
+	var myPlacemark1 = new ymaps.Placemark(
+		[62.024255, 129.726218],
+		{ balloonContent: 'Транспортная компания "Айан"' },
+		{ iconColor: '#3AC4A7' }
+	)
+	var myPlacemark2 = new ymaps.Placemark(
+		[55.048013, 82.905086],
+		{ balloonContent: 'Офис в Новосибирске' },
+		{ iconColor: '#3AC4A7' }
+	)
+	var myPlacemark3 = new ymaps.Placemark(
+		[55.461757, 37.583041],
+		{ balloonContent: 'Офис в Москве' },
+		{ iconColor: '#3AC4A7' }
+	)
+	myMap.behaviors.disable('scrollZoom')
+	myMap.geoObjects.add(myPlacemark1)
+	myMap.geoObjects.add(myPlacemark2)
+	myMap.geoObjects.add(myPlacemark3)
 
-      this.classList.toggle('active');
-      const index = Array.from(dropdownBtn).indexOf(this);
-      dropdownContent[index].classList.toggle('active');
-    });
-  });
-
-  document.addEventListener('click', function() {
-    dropdownContent.forEach(content => content.classList.remove('active'));
-    dropdownBtn.forEach(btn => btn.classList.remove('active'));
-  });
-
-  // Burger menu
-  const burgerOpenBtn = document.querySelector('.l-header__mob-nav svg.open-burger');
-  const burgerCloseBtn = document.querySelector('.l-header__mob__close svg');
-  const burgerWrapper = document.querySelector('.l-header__mob-wrapper');
-  const burgerContent = document.querySelector('.l-header__mob-content');
-
-  burgerOpenBtn.addEventListener('click', function(event) {
-    event.stopPropagation();
-    burgerWrapper.classList.add('active');
-    document.documentElement.classList.add('no-scroll');
-    setTimeout(function() {
-      burgerContent.classList.add('active');
-    }, 100);
-  });
-
-  burgerCloseBtn.addEventListener('click', function() {
-    burgerContent.classList.remove('active');
-    setTimeout(function() {
-      burgerWrapper.classList.remove('active');
-      document.documentElement.classList.remove('no-scroll');
-    }, 100);
-  });
-
-  document.addEventListener('click', function(event) {
-    if (event.target === burgerWrapper) {
-      burgerContent.classList.remove('active');
-      setTimeout(function() {
-        burgerWrapper.classList.remove('active');
-        document.documentElement.classList.remove('no-scroll');
-      }, 100);
-    }
-  });
-});
 	let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn')
 	locationBtns.forEach(element => {
 		element.addEventListener('click', event => {
@@ -188,50 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 }
 
-//yandex map function
-// function init() {
-//   var myMap = new ymaps.Map("map", {
-//     center: [62.024255, 129.726218],
-//     zoom: 16,
-//     controls: ['zoomControl'],
-//     behaviors: ["default", "scrollZoom"]
-//   });
-//   var myPlacemark1 = new ymaps.Placemark(
-//     [62.024255, 129.726218], 
-//     {balloonContent: 'Транспортная компания "Айан"'},
-//     {iconColor: '#3AC4A7'}
-//   );
-//   var myPlacemark2 = new ymaps.Placemark(
-//     [55.048013, 82.905086], 
-//     {balloonContent: 'Офис в Новосибирске'},
-//     {iconColor: '#3AC4A7'}
-//   );
-//   var myPlacemark3 = new ymaps.Placemark(
-//     [55.461757, 37.583041], 
-//     {balloonContent: 'Офис в Москве'},
-//     {iconColor: '#3AC4A7'}
-//   );
-//   myMap.behaviors.disable("scrollZoom");
-//   myMap.geoObjects.add(myPlacemark1);
-//   myMap.geoObjects.add(myPlacemark2);
-//   myMap.geoObjects.add(myPlacemark3);
-
-//   let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
-//   locationBtns.forEach(element => {
-//     element.addEventListener("click", (event) => {
-//       let coordinate = element.getAttribute('data-coordinate').split(',',2);
-//       myMap.setZoom(17);
-//       myMap.panTo([+coordinate[0], +coordinate[1]], {
-//         flying: true,
-//         delay: 1500,
-//         duration: 1500,
-//       });
-//     });
-//   });
-// }
-
-//custom select
-var x, i, j, l, ll, selElmnt, a, b, c;
+var x, i, j, l, ll, selElmnt, a, b, c
 /* Look for any elements with the class "custom-select": */
 x = document.getElementsByClassName('custom-select')
 l = x.length
@@ -343,6 +228,7 @@ function onFrwClick(cur) {
 
 		nextTab.classList.add('active')
 		nextNum.classList.add('active')
+		updateTabCounter();
 	})
 }
 
@@ -363,6 +249,7 @@ function onBackClick(cur) {
 
 		prevTab.classList.add('active')
 		prevNum.classList.add('active')
+		updateTabCounter()
 	})
 }
 
@@ -414,10 +301,12 @@ function validateForm() {
 		for (let i = 0; i < inputsFirstTab.length; i++) {
 			errorsFirstTab[i].innerHTML = ''
 			if (inputsFirstTab[i].value === '') {
+				errorsFirstTab[i].classList.add('active')
 				errorsFirstTab[i].innerHTML = 'Обязательное поле'
 				mark = false
 			}
 			if (inputsFirstTab[i].value != '') {
+				errorsFirstTab[i].classList.remove('active')
 				count += 1
 			}
 		}
@@ -444,10 +333,12 @@ function validateForm() {
 		for (let i = 0; i < inputsSecondTab.length; i++) {
 			errorsSecondTab[i].innerHTML = ''
 			if (inputsSecondTab[i].value === '') {
+				errorsSecondTab[i].classList.add('active')
 				errorsSecondTab[i].innerHTML = 'Обязательное поле'
 				mark = false
 			}
 			if (inputsSecondTab[i].value != '') {
+				errorsSecondTab[i].classList.remove('active')
 				count += 1
 			}
 		}
@@ -474,11 +365,25 @@ function validateForm() {
 		for (let i = 0; i < inputsThirdTab.length; i++) {
 			errorsThirdTab[i].innerHTML = ''
 			if (inputsSecondTab[i].value === '') {
+				errorsSecondTab[i].innerHTML.classList.add('active')
 				errorsSecondTab[i].innerHTML = 'Обязательное поле'
+			} else {
+				errorsSecondTab[i].innerHTML.classList.remove('active')
 			}
 		}
 	}
+
+	updateTabCounter()
 }
+
+function updateTabCounter() {
+    let totalTabs = document.querySelectorAll('.stages__num').length;
+    let activeTabIndex = Array.from(document.querySelectorAll('.stages__num')).indexOf(document.querySelector('.stages__num.active'));
+    let counterText = (activeTabIndex + 1) + '/' + totalTabs;
+    document.getElementById('tabCounter').innerText = counterText;
+	console.dir(counterText);
+}
+
 
 const inputsTab = document.querySelectorAll('.input-third-tab')
 let validated = false

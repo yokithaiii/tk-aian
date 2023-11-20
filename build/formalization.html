@@ -11,10 +11,16 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 	<link rel="manifest" href="/site.webmanifest" />
-
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.css" integrity="sha512-wCVOuVtxsXqrQK7tj9j4BvyfITQmpp7UE7mVilD7aieGLYFEIAa5UKTP1RapOf6dxQ9JIKAneakcyykWG4r4Ow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="css/fancybox.css" />
 	<link rel="stylesheet" href="css/swiper-bundle8.min.css" />
 	<link rel="stylesheet" href="css/style.min.css" />
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
+
 
 	<title>ТК Айан</title>
 </head>
@@ -22,12 +28,22 @@
 </html>
 
 <body>
+	<div id="preloader" class="active">
+		<div class="preloader">
+			<div class="circle"></div>
+			<div class="car">
+				<svg width="37" height="47" viewBox="0 0 37 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M17.8839 46.8657L6.08492 41.83C5.78025 41.7015 5.5203 41.4865 5.33746 41.2119C5.15463 40.9373 5.05699 40.6152 5.05672 40.2857L5.05672 35.25H1.68557C1.23853 35.25 0.809799 35.0732 0.493693 34.7584C0.177587 34.4436 0 34.0166 0 33.5714L0 1.67857C0 1.23339 0.177587 0.806436 0.493693 0.491643C0.809799 0.17685 1.23853 0 1.68557 0L30.3403 0C30.7873 0 31.2161 0.17685 31.5322 0.491643C31.8483 0.806436 32.0259 1.23339 32.0259 1.67857V5.27071C33.4542 5.65726 34.7151 6.50111 35.614 7.67207C36.513 8.84303 37 10.276 37 11.75C37 13.224 36.513 14.657 35.614 15.8279C34.7151 16.9989 33.4542 17.8427 32.0259 18.2293L32.0259 28.7707C33.4542 29.1573 34.7151 30.0011 35.614 31.1721C36.513 32.343 37 33.776 37 35.25C37 36.724 36.513 38.157 35.614 39.3279C34.7151 40.4989 33.4542 41.3427 32.0259 41.7293V45.3214C32.0259 45.7666 31.8483 46.1936 31.5322 46.5084C31.2161 46.8232 30.7873 47 30.3403 47L18.5413 47C18.3153 46.9996 18.0918 46.9539 17.8839 46.8657ZM8.42786 35.25L8.42786 39.1779L16.8557 42.77V35.25H8.42786ZM33.7115 11.75C33.7115 11.086 33.5137 10.437 33.1433 9.88487C32.7729 9.33279 32.2464 8.9025 31.6304 8.64841C31.0144 8.39431 30.3366 8.32783 29.6826 8.45736C29.0287 8.5869 28.428 8.90663 27.9565 9.37614C27.4851 9.84564 27.164 10.4438 27.0339 11.0951C26.9039 11.7463 26.9706 12.4213 27.2258 13.0347C27.4809 13.6482 27.913 14.1725 28.4674 14.5414C29.0218 14.9102 29.6736 15.1071 30.3403 15.1071C31.2344 15.1071 32.0919 14.7534 32.7241 14.1239C33.3563 13.4943 33.7115 12.6404 33.7115 11.75ZM28.6547 28.7707V18.2293C27.2264 17.8427 25.9655 16.9989 25.0666 15.8279C24.1677 14.657 23.6806 13.224 23.6806 11.75C23.6806 10.276 24.1677 8.84303 25.0666 7.67207C25.9655 6.50111 27.2264 5.65726 28.6547 5.27071V3.35714L3.37114 3.35714L3.37114 31.8929L24.5419 31.8929C24.9874 31.1285 25.58 30.4593 26.2858 29.9235C26.9916 29.3877 27.7966 28.996 28.6547 28.7707ZM33.7115 35.25C33.7115 34.586 33.5137 33.9369 33.1433 33.3849C32.7729 32.8328 32.2464 32.4025 31.6304 32.1484C31.0144 31.8943 30.3366 31.8278 29.6826 31.9574C29.0287 32.0869 28.428 32.4066 27.9565 32.8761C27.4851 33.3456 27.164 33.9438 27.0339 34.5951C26.9039 35.2463 26.9706 35.9213 27.2258 36.5347C27.4809 37.1482 27.913 37.6725 28.4674 38.0414C29.0218 38.4102 29.6736 38.6071 30.3403 38.6071C31.2344 38.6071 32.0919 38.2534 32.7241 37.6239C33.3563 36.9943 33.7115 36.1404 33.7115 35.25ZM28.6547 43.6429V41.7293C27.2111 41.3581 25.9317 40.5208 25.0167 39.3485C24.1018 38.1761 23.6029 36.7348 23.598 35.25L20.2269 35.25V43.6429L28.6547 43.6429Z" fill="#CDE4E0"/>
+				</svg>
+			</div>
+		</div>
+	</div>
 	
 	<main class="l-main">
 		<div class="l-wrapper">
-<div class="l-tablet">
-			<div class="l-tablet__breadcrumbs">
-				
+			<div class="l-tablet">
+				<div class="l-tablet__breadcrumbs">
+					
 <div class="l-breadcrumbs">
   <div class="l-wrapper">
     <ul>
@@ -64,274 +80,286 @@
     </ul>
   </div>
 </div>
-				<div class="l-wrapper">
-					<div class="l-section__title">
-						<h3>Оформление заказа</h3>
+					<div class="l-wrapper">
+						<div class="l-section__title">
+							<h3>Оформление заказа</h3>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="stages">
-				<div class="stages__num active">
-					<span class="l-stages__border">1</span>
-					<p class="l-stages__info">Информация об отправителе</p>
+				<div class="l-stages__mobile">
+					<div class="flex">
+						<span id="tabCounter">1/3</span>
+						<span>Информация об отправителе</span>
+					</div>
+					<svg width="105" height="21" viewBox="0 0 105 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="10" cy="10.5" r="10" fill="#3AC4A7"/>
+						<rect x="20" y="9.5" width="65" height="2" fill="#A6D6CC"/>
+						<circle cx="95" cy="10.5" r="10" fill="#A6D6CC"/>
+						</svg>
+						
 				</div>
-				<div class="stages__num">
-					<span class="l-stages__border">2</span>
-					<p class="l-stages__info-2">Информация о получателе</p>
+				<div class="stages">
+					<div class="stages__num active">
+						<span class="l-stages__border">1</span>
+						<p class="l-stages__info">Информация об отправителе</p>
+					</div>
+					<div class="stages__num">
+						<span class="l-stages__border">2</span>
+						<p class="l-stages__info-2">Информация о получателе</p>
+					</div>
+					<div class="stages__num">
+						<span class="l-stages__border" id="last">3</span>
+						<p class="l-stages__info-2">Информация о грузе</p>
+					</div>
 				</div>
-				<div class="stages__num">
-					<span class="l-stages__border" id="last">3</span>
-					<p class="l-stages__info-2">Информация о грузе</p>
-				</div>
-			</div>
 
-			<div class="l-tabs">
-				<form id="order-form">
-					<div class="l-tab active" data-tab="first">
-						<div class="l-form__forms">
-							<div class="l-form__place-1">
-								<div class="l-form__name">
-									<label class="l-form__text">Наименование организации</label>
-									<input
+				<div class="l-tabs">
+					<form id="order-form">
+						<div class="l-tab active" data-tab="first">
+							<div class="l-form__forms">
+								<div class="l-form__place-1">
+									<div class="l-form__name">
+										<label class="l-form__text">Наименование организации</label>
+										<input
+											class="input-first-tab"
+											id="formalize-name"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-first-tab" id="nameError" style="color: red;"></span>
+									</div>
+									<div class="l-form__contact">
+										<label class="l-form__text">Контактное лицо (ФИО)</label>
+										<input
 										class="input-first-tab"
-										id="formalize-name"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-first-tab" id="nameError" style="color: red;"></span>
+											id="formalize-contact"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span  class="error-first-tab" id="contactError" style="color: red;"></span>
+									</div>
+									<div class="l-form__number">
+										<label class="l-form__text">Телефон</label>
+										<input
+										class="input-first-tab"
+											id="formalize-phone"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span  class="error-first-tab" id="phoneError" style="color: red;"></span>
+									</div>
 								</div>
-								<div class="l-form__contact">
-									<label class="l-form__text">Контактное лицо (ФИО)</label>
-									<input
-									class="input-first-tab"
-										id="formalize-contact"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span  class="error-first-tab" id="contactError" style="color: red;"></span>
+								<div class="l-form__place-2">
+									<div class="l-form__city">
+										<label class="l-form__text">Населенный пункт отгрузки</label>
+										<input
+										class="input-first-tab"
+											id="formalize-city"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span  class="error-first-tab" id="cityError" style="color: red;"></span>
+									</div>
+									<div class="l-form__address">
+										<label class="l-form__text">Адрес</label>
+										<input
+										class="input-first-tab"
+											id="formalize-address"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-first-tab" id="addressError" style="color: red;"></span>
+									</div>
 								</div>
-								<div class="l-form__number">
-									<label class="l-form__text">Телефон</label>
-									<input
-									class="input-first-tab"
-										id="formalize-phone"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span  class="error-first-tab" id="phoneError" style="color: red;"></span>
-								</div>
-							</div>
-							<div class="l-form__place-2">
-								<div class="l-form__city">
-									<label class="l-form__text">Населенный пункт отгрузки</label>
-									<input
-									class="input-first-tab"
-										id="formalize-city"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span  class="error-first-tab" id="cityError" style="color: red;"></span>
-								</div>
-								<div class="l-form__address">
-									<label class="l-form__text">Адрес</label>
-									<input
-									class="input-first-tab"
-										id="formalize-address"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-first-tab" id="addressError" style="color: red;"></span>
+								<div class="l-form__place-3">
+									<div class="l-form__comment">
+										<label class="l-form__text">Примечание</label>
+										<textarea id="formalize-comment-1" placeholder="Внести данные" name="l-comment"/></textarea>
+									</div>
 								</div>
 							</div>
-							<div class="l-form__place-3">
-								<div class="l-form__comment">
-									<label class="l-form__text">Примечание</label>
-									<textarea id="formalize-comment-1" placeholder="Внести данные" name="l-comment"/></textarea>
-								</div>
-							</div>
-						</div>
-					<button onclick="validateForm()" class="l-form__button-frw" type="button">Далее</button>
-				</div>
-				<div class="l-tab" data-tab="second">
-						<div class="l-form__forms">
-							<div class="l-form__place-1">
-								<div class="l-form__name">
-									<label class="l-form__text">Наименование организации</label>
-									<input
+						<button onclick="validateForm()" class="l-form__button-frw" type="button">Далее</button>
+					</div>
+					<div class="l-tab" data-tab="second">
+							<div class="l-form__forms">
+								<div class="l-form__place-1">
+									<div class="l-form__name">
+										<label class="l-form__text">Наименование организации</label>
+										<input
+											class="input-second-tab"
+											id="formalize-name2"
+											type="text"
+											placeholder="Внести данные"
+										/>
+										<span class="error-second-tab" id="nameError2" style="color: red;"></span>
+									</div>
+									<div class="l-form__contact">
+										<label class="l-form__text">Контактное лицо (ФИО)</label>
+										<input
 										class="input-second-tab"
-										id="formalize-name2"
-										type="text"
-										placeholder="Внести данные"
-									/>
-									<span class="error-second-tab" id="nameError2" style="color: red;"></span>
+											id="formalize-contact2"
+											type="text"
+											placeholder="Внести данные"
+										/>
+										<span class="error-second-tab" id="contactError2" style="color: red;"></span>
+									</div>
+									<div class="l-form__number">
+										<label class="l-form__text">Телефон</label>
+										<input
+										class="input-second-tab"
+											id="formalize-phone2"
+											type="text"
+											placeholder="Внести данные"
+										/>
+										<span class="error-second-tab" id="phoneError2" style="color: red;"></span>
+									</div>
 								</div>
-								<div class="l-form__contact">
-									<label class="l-form__text">Контактное лицо (ФИО)</label>
-									<input
-									class="input-second-tab"
-										id="formalize-contact2"
-										type="text"
-										placeholder="Внести данные"
-									/>
-									<span class="error-second-tab" id="contactError2" style="color: red;"></span>
+								<div class="l-form__place-2">
+									<div class="l-form__city">
+										<label class="l-form__text">Населенный пункт отгрузки</label>
+										<input
+										class="input-second-tab"
+											id="formalize-city2"
+											type="text"
+											placeholder="Внести данные"
+										/>
+										<span class="error-second-tab" id="cityError2" style="color: red;"></span>
+									</div>
+									<div class="l-form__address">
+										<label class="l-form__text">Адрес</label>
+										<input
+										class="input-second-tab"
+											id="formalize-address2"
+											type="text"
+											placeholder="Внести данные"
+										/>
+										<span class="error-second-tab" id="addressError2" style="color: red;"></span>
+									</div>
 								</div>
-								<div class="l-form__number">
-									<label class="l-form__text">Телефон</label>
-									<input
-									class="input-second-tab"
-										id="formalize-phone2"
-										type="text"
-										placeholder="Внести данные"
-									/>
-									<span class="error-second-tab" id="phoneError2" style="color: red;"></span>
+								<div class="l-form__place-3">
+									<div class="l-form__comment">
+										<label class="l-form__text">Примечание</label>
+										<textarea id="formalize-comment-2" placeholder="Внести данные" name="l-comment"/></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="l-form__place-2">
-								<div class="l-form__city">
-									<label class="l-form__text">Населенный пункт отгрузки</label>
-									<input
-									class="input-second-tab"
-										id="formalize-city2"
-										type="text"
-										placeholder="Внести данные"
-									/>
-									<span class="error-second-tab" id="cityError2" style="color: red;"></span>
-								</div>
-								<div class="l-form__address">
-									<label class="l-form__text">Адрес</label>
-									<input
-									class="input-second-tab"
-										id="formalize-address2"
-										type="text"
-										placeholder="Внести данные"
-									/>
-									<span class="error-second-tab" id="addressError2" style="color: red;"></span>
-								</div>
-							</div>
-							<div class="l-form__place-3">
-								<div class="l-form__comment">
-									<label class="l-form__text">Примечание</label>
-									<textarea id="formalize-comment-2" placeholder="Внести данные" name="l-comment"/></textarea>
-								</div>
-							</div>
-						</div>
-						<div class="l-buttons">
-							<button class="l-form__button-back" type="button">Назад</button>
-							<button onclick="validateForm()" class="l-form__button-frw" type="button">Далее</button>
-						</div>
-				</div>
-				<div class="l-tab" data-tab="third">
-						<div class="l-form__forms">
-							<div class="l-form__place-1 third">
-								<div class="l-form__cargoName">
-									<label class="l-form__text">Наименование груза</label>
-									<input
-									class="input-third-tab"
-										id="formalize-cargoName"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="cargoNameError" style="color: red;"></span>
-								</div>
-								<div class="l-form__numberOfSeats">
-									<label class="l-form__text">Количество мест</label>
-									<input
-									class="input-third-tab"
-										id="formalize-numberOfSeats"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="numberOfSeatsError" style="color: red;"></span>
-								</div>
-							</div>
-							<div class="l-form__place-2 third">
-								<div class="l-form__weight">
-									<label class="l-form__text">Общий вес</label>
-									<input
-									class="input-third-tab"
-										id="formalize-weight"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="weightError" style="color: red;"></span>
-								</div>
-								<div class="l-form__volume">
-									<label class="l-form__text">Общий объем</label>
-									<input
-									class="input-third-tab"
-										id="formalize-volume"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="volumeError" style="color: red;"></span>
-								</div>
-								<div class="l-form__dimension">
-									<label class="l-form__text">Габариты. см</label>
-									<input
-									class="input-third-tab"
-										id="formalize-dimension"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="dimensionError" style="color: red;"></span>
-								</div>
-							</div>
-							<div class="l-form__place-3 third">
-								<div class="l-form__value">
-									<label class="l-form__text">Ценность</label>
-									<input
-									class="input-third-tab"
-										id="formalize-value"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="valueError" style="color: red;"></span>
-								</div>
-								<div class="l-form__shipmentDate">
-									<label class="l-form__text">Дата готовности к отгрузке</label>
-									<input
-									class="input-third-tab"
-										id="formalize-shipmentDate"
-										type="text"
-										placeholder="Внести данные"
-										required
-									/>
-									<span class="error-third-tab" id="shipmentDateError" style="color: red;"></span>
-								</div>
-							</div>
-							<div class="l-form__place-3">
-								<div class="l-form__comment">
-									<label class="l-form__text">Примечание</label>
-									<textarea id="formalize-comment-3" placeholder="Внести данные" name="l-comment"/></textarea>
-								</div>
-							</div>
-						</div>
-						<div class="l-check">
-							<span>После того как вы отправите заявку наша команда свяжется с вами, чтобы обсудить все детали и предложить оптимальное решение для вашей перевозки.</span>
-							<div class="l-policy">
-								<input class="input-third-tab" type="checkbox" id="privacyCheckbox">
-								<label for="privacyCheckbox">Я ознакомлен(-а) с <span>Политикой конфиденциальности</span></label>
 							</div>
 							<div class="l-buttons">
 								<button class="l-form__button-back" type="button">Назад</button>
-								<button onclick="validateForm()" class="l-form__button-design" type="submit" form="form">Оформить заявку</button>
+								<button onclick="validateForm()" class="l-form__button-frw" type="button">Далее</button>
 							</div>
-						</div>
-				 </form>
+					</div>
+					<div class="l-tab" data-tab="third">
+							<div class="l-form__forms">
+								<div class="l-form__place-1 third">
+									<div class="l-form__cargoName">
+										<label class="l-form__text">Наименование груза</label>
+										<input
+										class="input-third-tab"
+											id="formalize-cargoName"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="cargoNameError" style="color: red;"></span>
+									</div>
+									<div class="l-form__numberOfSeats">
+										<label class="l-form__text">Количество мест</label>
+										<input
+										class="input-third-tab"
+											id="formalize-numberOfSeats"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="numberOfSeatsError" style="color: red;"></span>
+									</div>
+								</div>
+								<div class="l-form__place-2 third">
+									<div class="l-form__weight">
+										<label class="l-form__text">Общий вес</label>
+										<input
+										class="input-third-tab"
+											id="formalize-weight"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="weightError" style="color: red;"></span>
+									</div>
+									<div class="l-form__volume">
+										<label class="l-form__text">Общий объем</label>
+										<input
+										class="input-third-tab"
+											id="formalize-volume"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="volumeError" style="color: red;"></span>
+									</div>
+									<div class="l-form__dimension">
+										<label class="l-form__text">Габариты. см</label>
+										<input
+										class="input-third-tab"
+											id="formalize-dimension"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="dimensionError" style="color: red;"></span>
+									</div>
+								</div>
+								<div class="l-form__place-3 third">
+									<div class="l-form__value">
+										<label class="l-form__text">Ценность</label>
+										<input
+										class="input-third-tab"
+											id="formalize-value"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="valueError" style="color: red;"></span>
+									</div>
+									<div class="l-form__shipmentDate">
+										<label class="l-form__text">Дата готовности к отгрузке</label>
+										<input
+										class="input-third-tab"
+											id="formalize-shipmentDate"
+											type="text"
+											placeholder="Внести данные"
+											required
+										/>
+										<span class="error-third-tab" id="shipmentDateError" style="color: red;"></span>
+									</div>
+								</div>
+								<div class="l-form__place-3">
+									<div class="l-form__comment">
+										<label class="l-form__text">Примечание</label>
+										<textarea id="formalize-comment-3" placeholder="Внести данные" name="l-comment"/></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="l-check">
+								<span>После того как вы отправите заявку наша команда свяжется с вами, чтобы обсудить все детали и предложить оптимальное решение для вашей перевозки.</span>
+								<div class="l-policy">
+									<input class="input-third-tab" type="checkbox" id="privacyCheckbox">
+									<label for="privacyCheckbox">Я ознакомлен(-а) с <span>Политикой конфиденциальности</span></label>
+								</div>
+								<div class="l-buttons">
+									<button class="l-form__button-back" type="button">Назад</button>
+									<button onclick="validateForm()" class="l-form__button-design" type="submit" form="form">Оформить заявку</button>
+								</div>
+							</div>
+					</form>
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 		
 
@@ -371,10 +399,9 @@
 	
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=211471a2-899c-473e-80b2-b22d00306a9e&lang=ru_RU" type="text/javascript">
 </script>
+<script src="js/calc.js"></script>
 
-<script src="js/fancybox.umd.js"></script>
-<script src="js/swiper-bundle8.min.js"></script>
-<script src="js/jquery-3.7.0.min.js"></script>
+
 <script src="js/main.min.js"></script>
 
 </body>

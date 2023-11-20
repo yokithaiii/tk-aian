@@ -1,4 +1,12 @@
-console.dir("from calc.js");
+
+window.addEventListener("load", () => {
+    if( document.querySelector("#preloader")) {
+        setTimeout(() => {
+            preloader.classList.remove("active");
+        }, 1500);
+    }
+});
+
 const { createApp, ref, onMounted, onBeforeMount, onUnmounted } = Vue;
 // import { ref, onMounted, createApp } from 'vue';
 if (document.querySelector("#app")) {
@@ -186,19 +194,227 @@ if (document.querySelector("#app")) {
     }).mount("#app");
 }
 
-const locomotiveScroll = new LocomotiveScroll({
-    lenisOptions: {
-        wrapper: window,
-        content: document.documentElement,
-        lerp: 0.1,
-        duration: 0.4,
-        orientation: "vertical",
-        gestureOrientation: "vertical",
-        smoothWheel: true,
-        smoothTouch: false,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
-        normalizeWheel: true,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-    },
+// const locomotiveScroll = new LocomotiveScroll({
+//     lenisOptions: {
+//         wrapper: window,
+//         content: document.documentElement,
+//         lerp: 0.1,
+//         duration: 0.4,
+//         orientation: "vertical",
+//         gestureOrientation: "vertical",
+//         smoothWheel: true,
+//         smoothTouch: false,
+//         wheelMultiplier: 1,
+//         touchMultiplier: 2,
+//         normalizeWheel: true,
+//         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+//     },
+// });
+
+//Tabs. formalization.html
+const TabsBtn = document.querySelectorAll(".l-tab");
+const stagesNum = document.querySelectorAll(".stages__num");
+const frwButt = document.querySelectorAll(".l-form__button-frw");
+const backButt = document.querySelectorAll(".l-form__button-back");
+
+//frwButt.forEach(onFrwClick)
+backButt.forEach(onBackClick);
+
+function onFrwClick(cur) {
+    cur.addEventListener("click", function (evt) {
+        let nextNum = document.querySelector(
+            ".stages__num.active"
+        ).nextElementSibling;
+        let nextTab =
+            document.querySelector(".l-tab.active").nextElementSibling;
+
+        stagesNum.forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        TabsBtn.forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        nextTab.classList.add("active");
+        nextNum.classList.add("active");
+        updateTabCounter();
+    });
+}
+
+function onBackClick(cur) {
+    cur.addEventListener("click", function (evt) {
+        let prevNum = document.querySelector(
+            ".stages__num.active"
+        ).previousElementSibling;
+        let prevTab =
+            document.querySelector(".l-tab.active").previousElementSibling;
+
+        stagesNum.forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        TabsBtn.forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        prevTab.classList.add("active");
+        prevNum.classList.add("active");
+        updateTabCounter();
+    });
+}
+
+let check = document.getElementById("privacyCheckbox");
+let designBut = document.querySelector(".l-form__button-design");
+
+//document.addEventListener('DOMContentLoaded', displaySubmit)
+
+//check.addEventListener('click', displaySubmit)
+//designBut.addEventListener('click', displaySubmit)
+
+// function displaySubmit() {
+// 	if (check.checked) {
+// 		designBut.disabled = false
+// 	} else {
+// 		designBut.disabled = true
+// 	}
+// }
+
+const orderForm = document.querySelector("#order-form");
+
+function validateForm() {
+    window.scrollTo(0, 200);
+    designBut.disabled = true;
+    //First Tab
+    const inputsFirstTab = document.querySelectorAll(".input-first-tab");
+    const errorsFirstTab = document.querySelectorAll(".error-first-tab");
+
+    //Second Tab
+    const inputsSecondTab = document.querySelectorAll(".input-second-tab");
+    const errorsSecondTab = document.querySelectorAll(".error-second-tab");
+
+    //Third Tab
+    const inputsThirdTab = document.querySelectorAll(".input-third-tab");
+    const errorsThirdTab = document.querySelectorAll(".error-third-tab");
+
+    let mark = false;
+    let count = 0;
+    let findTab = document
+        .querySelector(".l-tab.active")
+        .getAttribute("data-tab");
+
+    if (findTab === "first") {
+        fTab();
+    } else if (findTab === "second") {
+        sTab();
+    } else if (findTab === "third") {
+        thTab();
+    }
+
+    function fTab() {
+        for (let i = 0; i < inputsFirstTab.length; i++) {
+            errorsFirstTab[i].innerHTML = "";
+            if (inputsFirstTab[i].value === "") {
+                errorsFirstTab[i].classList.add("active");
+                errorsFirstTab[i].innerHTML = "Обязательное поле";
+                mark = false;
+            }
+            if (inputsFirstTab[i].value != "") {
+                errorsFirstTab[i].classList.remove("active");
+                count += 1;
+            }
+        }
+        if (count === errorsFirstTab.length) {
+            let nextNum = document.querySelector(
+                ".stages__num.active"
+            ).nextElementSibling;
+            let nextTab =
+                document.querySelector(".l-tab.active").nextElementSibling;
+
+            stagesNum.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            TabsBtn.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            nextTab.classList.add("active");
+            nextNum.classList.add("active");
+        }
+    }
+
+    function sTab() {
+        for (let i = 0; i < inputsSecondTab.length; i++) {
+            errorsSecondTab[i].innerHTML = "";
+            if (inputsSecondTab[i].value === "") {
+                errorsSecondTab[i].classList.add("active");
+                errorsSecondTab[i].innerHTML = "Обязательное поле";
+                mark = false;
+            }
+            if (inputsSecondTab[i].value != "") {
+                errorsSecondTab[i].classList.remove("active");
+                count += 1;
+            }
+        }
+        if (count === errorsSecondTab.length) {
+            let nextNum = document.querySelector(
+                ".stages__num.active"
+            ).nextElementSibling;
+            let nextTab =
+                document.querySelector(".l-tab.active").nextElementSibling;
+
+            stagesNum.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            TabsBtn.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            nextTab.classList.add("active");
+            nextNum.classList.add("active");
+        }
+    }
+
+    function thTab() {
+        for (let i = 0; i < inputsThirdTab.length; i++) {
+            errorsThirdTab[i].innerHTML = "";
+            if (inputsSecondTab[i].value === "") {
+                errorsSecondTab[i].innerHTML.classList.add("active");
+                errorsSecondTab[i].innerHTML = "Обязательное поле";
+            } else {
+                errorsSecondTab[i].innerHTML.classList.remove("active");
+            }
+        }
+    }
+
+    updateTabCounter();
+}
+
+function updateTabCounter() {
+    let totalTabs = document.querySelectorAll(".stages__num").length;
+    let activeTabIndex = Array.from(
+        document.querySelectorAll(".stages__num")
+    ).indexOf(document.querySelector(".stages__num.active"));
+    let counterText = activeTabIndex + 1 + "/" + totalTabs;
+    document.getElementById("tabCounter").innerText = counterText;
+    console.dir(counterText);
+}
+
+const inputsTab = document.querySelectorAll(".input-third-tab");
+let validated = false;
+
+inputsTab.forEach((el) => {
+    el.addEventListener("input", () => {
+        let allFilled = true; // Переменная-флаг
+
+        for (let i = 0; i < inputsTab.length; i++) {
+            if (inputsTab[i].value == "") {
+                allFilled = false;
+                break;
+            }
+        }
+        designBut.disabled = !allFilled;
+    });
 });
